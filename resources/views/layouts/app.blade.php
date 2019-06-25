@@ -94,6 +94,11 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
+            @if(auth()->user()->rol != 'Admin')
+                <li>
+                    <h1 style="max-height: 100px;text-align: center">CUENTA INACTIVA</h1>
+                </li>
+            @endif
         </div>
 
         <!-- Main Footer -->

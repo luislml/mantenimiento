@@ -16,6 +16,26 @@ Route::get('/', function () {
 });
 
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('usuarios', 'UsuarioController');
+
+Route::resource('eInformaticos', 'E_informaticoController');
+
+Route::resource('unidads', 'UnidadController');
+
+
+Route::resource('areas', 'AreaController');
+route::get('areass/{id?}', ['as'=>'areass.indexx', 'uses'=>'AreaController@indexx']);
+route::get('areas/create/{id?}', ['as'=>'areas.createe', 'uses'=>'AreaController@create']);
+
+
+
+Route::resource('subAreas', 'Sub_AreaController');
+route::get('subAreass/{id?}', ['as'=>'subAreass.indexx', 'uses'=>'Sub_AreaController@indexx']);
+route::get('subAreas/create/{id?}', ['as'=>'subAreas.createe', 'uses'=>'Sub_AreaController@create']);
+

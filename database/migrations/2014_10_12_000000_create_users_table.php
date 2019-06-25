@@ -19,11 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('apellido');
             $table->string('ci')->unique();
             $table->string('telefono');
-            $table->string('rol');
-            $table->string('estado');
+            $table->string('rol')->nullable();
+            $table->string('estado')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

@@ -17,7 +17,8 @@
         "infyomlabs/adminlte-templates": "5.5.x-dev",
         "infyomlabs/swagger-generator": "dev-master",
         "appointer/swaggervel": "dev-master",
-        "doctrine/dbal": "~2.3"
+        "doctrine/dbal": "~2.3",
+        "simplesoftwareio/simple-qrcode": "~2"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

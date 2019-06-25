@@ -11,9 +11,9 @@
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
-                <p>InfyOm</p>
+                <p>Mantenimineto</p>
                 @else
-                    <p>{{ Auth::user()->name}}</p>
+                    <p>{{ Auth::user()->nombre}}</p>
                 @endif
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
