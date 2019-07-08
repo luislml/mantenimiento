@@ -46,8 +46,13 @@ class Unidad extends Model
     ];
 
     public function areas()
-    {
+    {   // creamos una relación con el modelo de Area
         return $this->hasMany(Area::class);
+    }
+
+    public function usuarios(){
+        // creamos una relación con el modelo de Unidad
+        return $this->hasMany(Usuario::class);
     }
 
     

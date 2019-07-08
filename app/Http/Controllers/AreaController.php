@@ -10,9 +10,20 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Unidad;
+use App\Models\Area;
 
 class AreaController extends AppBaseController
 {
+    public function getCareers(Request $request)
+    {
+        if ($request->ajax()) {
+            $careers = Area::where('unidad_id', $request->faculty_id)->get();
+            foreach ($careers as $career) {
+                $careersArray[$career->id] = $career->nombre;
+            }
+            return response()->json($careersArray);
+        }
+    }
     /** @var  AreaRepository */
     private $areaRepository;
 
@@ -20,7 +31,8 @@ class AreaController extends AppBaseController
     {
         $this->areaRepository = $areaRepo;
     }
-
+   
+   
     /**
      * Display a listing of the Area.
      *

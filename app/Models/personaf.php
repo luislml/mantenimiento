@@ -6,26 +6,30 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Area
+ * Class personaf
  * @package App\Models
- * @version June 18, 2019, 7:44 pm UTC
+ * @version July 2, 2019, 12:56 am UTC
  *
- * @property integer unidad_id
  * @property string nombre
+ * @property string unidad
+ * @property string area
+ * @property string subarea
  */
-class Area extends Model
+class personaf extends Model
 {
     use SoftDeletes;
 
-    public $table = 'areas';
+    public $table = 'users';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
+        'user_id',
         'unidad_id',
-        'nombre'
+        'area_id',
+        'sub_area_id'
     ];
 
     /**
@@ -35,8 +39,10 @@ class Area extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'unidad_id' => 'integer',
-        'nombre' => 'string'
+        'nombre' => 'string',
+        'unidad' => 'string',
+        'area' => 'string',
+        'subarea' => 'string'
     ];
 
     /**
@@ -45,18 +51,8 @@ class Area extends Model
      * @var array
      */
     public static $rules = [
-        
-        'nombre' => 'required'
+        'user_id' => 'unique:Personals'
     ];
 
-    public function unidad()
-    {
-        return $this->belongsTo(Unidad::class);
-    }
-
-    public function sub_areas()
-    {
-        return $this->hasMany(Sub_Area::class);
-    }
     
 }

@@ -11,11 +11,22 @@ use Flash;
 use Response;
 use App\Models\Area;
 use App\Models\Unidad;
+use App\Models\Sub_Area;
 
 
 
 class Sub_AreaController extends AppBaseController
 {
+    public function getsubarea(Request $request)
+    {
+        if ($request->ajax()) {
+            $careers = Sub_Area::where('area_id', $request->faculty_id)->get();
+            foreach ($careers as $career) {
+                $careersArray[$career->id] = $career->nombre;
+            }
+            return response()->json($careersArray);
+        }
+    }
     /** @var  Sub_AreaRepository */
     private $subAreaRepository;
 

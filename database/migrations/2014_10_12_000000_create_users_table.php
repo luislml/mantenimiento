@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('ci')->unique();
@@ -22,9 +22,22 @@ class CreateUsersTable extends Migration
             $table->string('rol')->nullable();
             $table->string('estado')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->integer('unidad_id')->unsigned()->nullable();
+                        $table->foreign('unidad_id')->references('id')->on('unidads');
+
+            $table->integer('area_id')->unsigned()->nullable();
+                        $table->foreign('area_id')->references('id')->on('areas');
+
+            $table->integer('sub_area_id')->unsigned()->nullable();
+                        $table->foreign('sub_area_id')->references('id')->on('sub__areas');
+
+            
+
+
+
             $table->timestamps();
             $table->softDeletes();
+
 
         });
     }

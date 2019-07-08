@@ -19,9 +19,18 @@
     <a href="{!! route('unidads.index') !!}"><i class="fa fa-edit"></i><span>Unidads</span></a>
 </li>
 
+<li class="{{ Request::is('listarUas*') ? 'active' : '' }}">
+    <a href="{!! route('listarUas.index') !!}"><i class="fa fa-edit"></i><span>Listar Uas</span></a>
+</li>
 
 
 
+
+
+
+<li class="{{ Request::is('personafs*') ? 'active' : '' }}">
+    <a href="{!! route('personafs.index') !!}"><i class="fa fa-edit"></i><span>Personafs</span></a>
+</li>
 
 
 

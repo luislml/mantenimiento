@@ -47,5 +47,10 @@ class Sub_Area extends Model
         'nombre' => 'required'
     ];
 
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
     
 }

@@ -58,6 +58,20 @@ class Usuario extends Model
         'apellido' => 'required',
         'ci' => 'required'
     ];
+
+
+    public function unidad()
+    {
+        return $this->belongsTo(Unidad::class);
+    }
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+    public function sub_area()
+    {
+        return $this->belongsTo(Sub_Area::class);
+    }
     
 
     

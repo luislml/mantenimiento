@@ -116,7 +116,7 @@ class UsuarioController extends AppBaseController
     public function update($id, UpdateUsuarioRequest $request)
     {
         $usuario = $this->usuarioRepository->find($id);
-
+        
         if (empty($usuario)) {
             Flash::error('Usuario not found');
 
