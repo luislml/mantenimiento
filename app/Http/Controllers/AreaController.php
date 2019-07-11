@@ -14,8 +14,15 @@ use App\Models\Area;
 
 class AreaController extends AppBaseController
 {
+
+    public function byFoundation($id)
+    {
+        return Area::where('unidad_id', $id)->get();
+    }
+
     public function getCareers(Request $request)
     {
+        $careersArray = [];
         if ($request->ajax()) {
             $careers = Area::where('unidad_id', $request->faculty_id)->get();
             foreach ($careers as $career) {
@@ -24,6 +31,18 @@ class AreaController extends AppBaseController
             return response()->json($careersArray);
         }
     }
+    /*public function getCareers(Request $request)
+    {
+        $areasArray = [];
+        if ($request->ajax()) {
+            $areas = Area::where('unidad_id', $request->unidad_id)->get();
+            foreach ($areas as $areaa) {
+                $areasArray[$areaa->id] = $areaa->nombre;
+            }
+            dd($areassArray);
+            return response()->json($areassArray);
+        }
+    }*/
     /** @var  AreaRepository */
     private $areaRepository;
 

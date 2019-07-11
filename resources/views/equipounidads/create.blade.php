@@ -13,15 +13,15 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'person.updat']) !!}
+                    {!! Form::open(['route' => 'equipounidads.equipoupdate']) !!}
 
 <div class="form-group col-sm-12">
     {!! Form::label('nombre', 'Nombre:') !!}
     <select name="id" class="form-control">
             <option value="">-- Seleccione Usuario --</option>
-        @foreach($user as $users)
+        @foreach($equipou as $equipos)
             
-            <option value="{{ $users->id }}">{!! $users->nombre !!}</option>
+            <option value="{{ $equipos->id }}">{!! $equipos->nombre !!}</option>
         @endforeach
     </select>
 </div>

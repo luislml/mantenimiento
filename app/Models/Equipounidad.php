@@ -6,27 +6,27 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class personaf
+ * Class Equipounidad
  * @package App\Models
- * @version July 2, 2019, 12:56 am UTC
+ * @version July 11, 2019, 2:49 pm UTC
  *
  * @property string nombre
  * @property string unidad
  * @property string area
  * @property string subarea
  */
-class personaf extends Model
+class Equipounidad extends Model
 {
     use SoftDeletes;
 
-    public $table = 'users';
+    public $table = 'e_informaticos';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'user_id',
+        'id',
         'unidad_id',
         'area_id',
         'sub_area_id',
@@ -52,8 +52,10 @@ class personaf extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'unique:Personals'
+        
     ];
+
+
 
     
 }

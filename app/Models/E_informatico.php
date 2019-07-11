@@ -31,7 +31,11 @@ class E_informatico extends Model
         'mac',
         'numero_activo',
         'modelo',
-        'numero_serie'
+        'numero_serie',
+        'unidad_id',
+        'area_id',
+        'sub_area_id',
+        'estado'
     ];
 
     /**
@@ -57,6 +61,17 @@ class E_informatico extends Model
         'nombre' => 'required'
     ];
     
-
+     public function unidad()
+    {
+        return $this->belongsTo(Unidad::class);
+    }
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+    public function sub_area()
+    {
+        return $this->belongsTo(Sub_Area::class);
+    }
     
 }

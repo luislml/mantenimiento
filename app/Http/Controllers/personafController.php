@@ -20,6 +20,23 @@ use App\Models\Usuario;
 
 class personafController extends AppBaseController
 {
+
+    public function byFoundation($id)
+    {
+        return Area::where('unidad_id', $id)->get();
+    }
+    public function getsubareas($id)
+    {
+        return Sub_Area::where('area_id', $id)->get();
+    }
+    public function getareas_a($id,$d)
+    {
+        return Area::where('unidad_id', $d)->get();
+    }
+    public function getsubareas_a($id,$d)
+    {
+        return Sub_Area::where('area_id', $d)->get();
+    }
     /** @var  personafRepository */
     private $personafRepository;
 
@@ -47,6 +64,8 @@ class personafController extends AppBaseController
         $area = Area::all();
         $sub_area = Sub_Area::all();
 
+        
+
         return view('personafs.index')
             ->with('personafs', $personafs)
             ->with('unidad', $unidad)
@@ -68,17 +87,11 @@ class personafController extends AppBaseController
         $sub_area = Sub_Area::all();
         //dd($user);
 
-        
-
-
-
         return view('personafs.crear')
         ->with('user', $user)
         ->with('unidad', $unidad)
         ->with('sub_area', $sub_area);
     }
-
-
 
     /**
      * Store a newly created personaf in storage.
@@ -128,15 +141,29 @@ class personafController extends AppBaseController
      */
     public function edit($id)
     {
-        $personaf = $this->personafRepository->find($id);
-
+        $personaf = Usuario::find($id);
+        $unidad = Unidad::all();
+        
         if (empty($personaf)) {
             Flash::error('Personaf not found');
 
             return redirect(route('personafs.index'));
         }
 
-        return view('personafs.edit')->with('personaf', $personaf);
+        return view('personafs.edit')->with('personaf', $personaf)->with('unidad', $unidad);
+    }
+    public function editestado($id)
+    {
+        $personaf = Usuario::find($id);
+        $unidad = Unidad::all();
+        
+        if (empty($personaf)) {
+            Flash::error('Personaf not found');
+
+            return redirect(route('personafs.index'));
+        }
+
+        return view('personafs.editestado')->with('personaf', $personaf)->with('unidad', $unidad);
     }
     public function editt()
     {
@@ -146,11 +173,13 @@ class personafController extends AppBaseController
         $sub_area = Sub_Area::all();
         //dd($user);
 
-        return view('personafs.crear')
+        return view('personafs.create')
         ->with('user', $user)
         ->with('unidad', $unidad);
         
     }
+    
+
 
     /**
      * Update the specified personaf in storage.
@@ -163,7 +192,7 @@ class personafController extends AppBaseController
     public function update($id, UpdatepersonafRequest $request)
     {
         $personaf = $this->personafRepository->find($id);
-
+        
         if (empty($personaf)) {
             Flash::error('Personaf not found');
 

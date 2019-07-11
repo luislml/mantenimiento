@@ -15,6 +15,8 @@
 
 
 
+
+
 <li class="{{ Request::is('unidads*') ? 'active' : '' }}">
     <a href="{!! route('unidads.index') !!}"><i class="fa fa-edit"></i><span>Unidads</span></a>
 </li>
@@ -33,4 +35,8 @@
 </li>
 
 
+
+<li class="{{ Request::is('equipounidads*') ? 'active' : '' }}">
+    <a href="{!! route('equipounidads.index') !!}"><i class="fa fa-edit"></i><span>Equipounidads</span></a>
+</li>
 

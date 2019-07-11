@@ -46,3 +46,15 @@
     <p>{!! $eInformatico->updated_at !!}</p>
 </div>
 
+<div class="form-group">
+    <h4>QR code</h4>
+    {!! QrCode::size(300)->generate(
+        "
+        nombre:$eInformatico->nombre, 
+        mac:$eInformatico->mac, 
+        modelo:$eInformatico->modelo,
+        numero_activo:$eInformatico->numero_activo,
+        numero_serie:$eInformatico->numero_serie
+        "); !!}
+    
+</div>

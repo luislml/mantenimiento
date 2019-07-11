@@ -57,6 +57,7 @@ class UsuarioController extends AppBaseController
     public function store(CreateUsuarioRequest $request)
     {
         $input = $request->all();
+        
 
         $usuario = $this->usuarioRepository->create($input);
 

@@ -43,13 +43,27 @@ route::get('subAreas/create/{id?}', ['as'=>'subAreas.createe', 'uses'=>'Sub_Area
 
 
 Route::resource('personafs', 'personafController');
-route::get('persona', ['as'=>'personales.creat', 'uses'=>'PersonafController@create']);
-Route::get('/areas', 'AreaController@getCareers');
-Route::get('/subarea', 'Sub_AreaController@getsubarea');
 route::get('perso', ['as'=>'person.crea', 'uses'=>'PersonafController@editt']);
 route::post('person', ['as'=>'person.updat', 'uses'=>'PersonafController@updatee']);
+Route::Get('personafs/{d}/areas/{id}', 'personafController@getareas_a');
+Route::Get('personafs/{d}/subareas/{id}', 'personafController@getsubareas_a');
+Route::Get('productByCategory/{id}', 'personafController@byFoundation');
+Route::Get('getsubareas/{id}', 'personafController@getsubareas'); 
+route::get('personafs/{personaf}/editestado', ['as'=>'personafs.editestado', 'uses'=>'PersonafController@editestado']);
 
 
 
 
 Route::resource('listarUas', 'Listar_uasController');
+
+
+
+
+Route::resource('equipounidads', 'EquipounidadController');
+route::get('equipounidadsinsert', ['as'=>'equipounidads.equipoinsert', 'uses'=>'EquipounidadController@editt']);
+route::post('equipounidadsupdate', ['as'=>'equipounidads.equipoupdate', 'uses'=>'EquipounidadController@updatee']);
+Route::Get('getareas/{id}', 'EquipounidadController@getareas');
+Route::Get('getsubareas/{id}', 'EquipounidadController@getsubareas');
+Route::Get('equipounidads/{d}/areas/{id}', 'EquipounidadController@getareas_a');
+Route::Get('equipounidads/{d}/subareas/{id}', 'EquipounidadController@getsubareas_a');
+route::get('equipounidads/{equipou}/editestado', ['as'=>'equipounidads.editestado', 'uses'=>'EquipounidadController@editestado']);

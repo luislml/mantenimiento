@@ -55,5 +55,10 @@ class Unidad extends Model
         return $this->hasMany(Usuario::class);
     }
 
+    public function equipou(){
+        // creamos una relación con el modelo de Unidad
+        return $this->hasMany(E_informatico::class);
+    }
+
     
 }

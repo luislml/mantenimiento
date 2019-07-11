@@ -31,7 +31,8 @@ class Usuario extends Model
         'apellido',
         'ci',
         'telefono',
-        'rol'
+        'rol',
+        'estado'
     ];
 
     /**
@@ -45,7 +46,8 @@ class Usuario extends Model
         'apellido' => 'string',
         'ci' => 'string',
         'telefono' => 'string',
-        'rol' => 'string'
+        'rol' => 'string',
+        'estado' => 'string'
     ];
 
     /**
