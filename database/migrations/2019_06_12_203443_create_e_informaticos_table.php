@@ -14,13 +14,17 @@ class CreateEInformaticosTable extends Migration
     public function up()
     {
         Schema::create('e_informaticos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('nombre');
-            $table->string('mac');
-            $table->integer('numero_activo');
-            $table->string('modelo');
-            $table->integer('numero_serie');
+            $table->string('mac')->nullable();
+            $table->integer('numero_activo')->nullable();
+            $table->string('modelo')->nullable();
+            $table->string('numero_serie')->nullable();
             $table->string('estado')->nullable();
+
+            $table->integer('usuario_id')->unsigned()->nullable();
+                        $table->foreign('usuario_id')->references('id')->on('users');
+
             $table->integer('unidad_id')->unsigned()->nullable();
                         $table->foreign('unidad_id')->references('id')->on('unidads');
 

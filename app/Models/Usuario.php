@@ -74,6 +74,11 @@ class Usuario extends Model
     {
         return $this->belongsTo(Sub_Area::class);
     }
+    public function E_informaticos()
+    {
+        return $this->Hasmany(E_informatico::class);
+    }
+
     
 
     

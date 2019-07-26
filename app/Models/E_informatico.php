@@ -32,6 +32,7 @@ class E_informatico extends Model
         'numero_activo',
         'modelo',
         'numero_serie',
+        'usuario_id',
         'unidad_id',
         'area_id',
         'sub_area_id',
@@ -73,5 +74,14 @@ class E_informatico extends Model
     {
         return $this->belongsTo(Sub_Area::class);
     }
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
+    public function mantenimientos()
+    {
+        return $this->hasMany(Mantenimiento::class);
+    }
+
     
 }

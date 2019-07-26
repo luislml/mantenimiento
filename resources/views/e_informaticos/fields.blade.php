@@ -25,7 +25,7 @@
 <!-- Numero Serie Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('numero_serie', 'Numero Serie:') !!}
-    {!! Form::number('numero_serie', null, ['class' => 'form-control']) !!}
+    {!! Form::text('numero_serie', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

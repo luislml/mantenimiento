@@ -4,7 +4,7 @@
     
 <section class="content-header">
         <h1>
-            usuario unidad
+            Asignar Usuario a : Unidad , Area , Sub Area
         </h1>
     </section>
     <div class="content">
@@ -18,10 +18,10 @@
 <div class="form-group col-sm-12">
     {!! Form::label('nombre', 'Nombre:') !!}
     <select name="id" class="form-control">
-            <option value="">-- Seleccione Usuario --</option>
+            <option value="">-- Seleccione Equipo --</option>
         @foreach($equipou as $equipos)
             
-            <option value="{{ $equipos->id }}">{!! $equipos->nombre !!}</option>
+            <option value="{{ $equipos->id }}">Nombre: {!! $equipos->nombre !!} Mac: {!! $equipos->mac !!} Numero de activo: {!! $equipos->numero_activo !!}</option>
         @endforeach
     </select>
 </div>

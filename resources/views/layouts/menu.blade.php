@@ -40,3 +40,31 @@
     <a href="{!! route('equipounidads.index') !!}"><i class="fa fa-edit"></i><span>Equipounidads</span></a>
 </li>
 
+<li class="{{ Request::is('userequipos*') ? 'active' : '' }}">
+    <a href="{!! route('userequipos.index') !!}"><i class="fa fa-edit"></i><span>Userequipos</span></a>
+</li>
+
+
+
+<li class="{{ Request::is('herramientas*') ? 'active' : '' }}">
+    <a href="{!! route('herramientas.index') !!}"><i class="fa fa-edit"></i><span>Herramientas</span></a>
+</li>
+
+
+
+<li class="{{ Request::is('mantenimientos*') ? 'active' : '' }}">
+    <a href="{!! route('mantenimientos.index') !!}"><i class="fa fa-edit"></i><span>Mantenimientos</span></a>
+</li>
+
+
+
+<li class="{{ Request::is('cites*') ? 'active' : '' }}">
+    <a href="{!! route('cites.index') !!}"><i class="fa fa-edit"></i><span>Cites</span></a>
+</li>
+
+
+
+
+
+
+

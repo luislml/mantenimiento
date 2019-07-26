@@ -67,3 +67,54 @@ Route::Get('getsubareas/{id}', 'EquipounidadController@getsubareas');
 Route::Get('equipounidads/{d}/areas/{id}', 'EquipounidadController@getareas_a');
 Route::Get('equipounidads/{d}/subareas/{id}', 'EquipounidadController@getsubareas_a');
 route::get('equipounidads/{equipou}/editestado', ['as'=>'equipounidads.editestado', 'uses'=>'EquipounidadController@editestado']);
+
+
+Route::resource('userequipos', 'UserequipoController');
+//rutas de las peticiones de seleccion usuario - equipo
+Route::Get('userequipos/getareas/{id}', 'UserequipoController@getareas');
+Route::Get('userequipos/getsubareas/{id}', 'UserequipoController@getsubareas');
+Route::Get('userequipos/getusuarios/{id}', 'UserequipoController@getusuarios');
+Route::Get('userequipos/getequipos/{id}', 'UserequipoController@getequipos');
+Route::Get('userequipos/getusuariosa/{id}', 'UserequipoController@getusuariosa');
+Route::Get('userequipos/getequiposa/{id}', 'UserequipoController@getequiposa');
+Route::Get('userequipos/getusuariossa/{id}', 'UserequipoController@getusuariossa');
+Route::Get('userequipos/getequipossa/{id}', 'UserequipoController@getequipossa');
+
+
+
+Route::resource('herramientas', 'HerramientasController');
+Route::get('descargar_publicacion/{id}', 'HerramientasController@descargar_publicacion');
+
+
+
+
+
+Route::resource('mantenimientos', 'MantenimientoController');
+//rutas de las peticiones de seleccion mantenimiento
+Route::Get('mantenimientos/getareas/{id}', 'MantenimientoController@getareas');
+Route::Get('mantenimientos/getsubareas/{id}', 'MantenimientoController@getsubareas');
+Route::Get('mantenimientos/getusuarios/{id}', 'MantenimientoController@getusuarios');
+Route::Get('mantenimientos/getequipos/{id}', 'MantenimientoController@getequipos');
+//rutas update
+Route::Get('mantenimientos/getusuariosa/{id}', 'MantenimientoController@getusuariosa');
+Route::Get('mantenimientos/getequiposa/{id}', 'MantenimientoController@getequiposa');
+Route::Get('mantenimientos/getusuariossa/{id}', 'MantenimientoController@getusuariossa');
+Route::Get('mantenimientos/getequipossa/{id}', 'MantenimientoController@getequipossa');
+
+Route::resource('cites', 'CiteController');
+route::post('cites', ['as'=>'gestion.update', 'uses'=>'CiteController@gestion']);
+route::get('cerrar', ['as'=>'gestion.cerrar', 'uses'=>'CiteController@cerrargestion']);
+
+
+
+//observaciones
+
+Route::resource('observacions', 'ObservacionController');
+route::get('observacion/{observacion}', ['as'=>'observacions.indexid', 'uses'=>'ObservacionController@indexid']);
+route::get('create/{observacion}', ['as'=>'observacions.create', 'uses'=>'ObservacionController@create']);
+
+//recomendaciones
+
+Route::resource('recomendacions', 'RecomendacionController');
+route::get('recomendacions/{recomendacion}', ['as'=>'recomendacions.indexid', 'uses'=>'RecomendacionController@index']);
+route::get('rcreate/{recomendacion}', ['as'=>'recomendacions.create', 'uses'=>'RecomendacionController@create']);

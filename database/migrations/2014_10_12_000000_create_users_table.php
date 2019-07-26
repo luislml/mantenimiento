@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('ci')->unique();
-            $table->string('telefono');
+            $table->string('telefono')->nullable();
             $table->string('rol')->nullable();
             $table->string('estado')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->integer('unidad_id')->unsigned()->nullable();
                         $table->foreign('unidad_id')->references('id')->on('unidads');
 
