@@ -15,10 +15,9 @@ class CreateCitesTable extends Migration
     {
         Schema::create('cites', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('gestion_id')->unsigned();
+            $table->string('gestion_id');
             $table->integer('mantenimiento_id')->unsigned()->nullable();
             $table->integer('cite')->unsigned()->nullable();
-            $table->foreign('gestion_id')->references('id')->on('gestions');
             $table->foreign('mantenimiento_id')->references('id')->on('mantenimientos');
 
             $table->timestamps();

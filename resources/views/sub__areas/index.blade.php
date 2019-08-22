@@ -7,7 +7,7 @@
         
 
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('subAreas.createe', [$area->id]) !!}">Add New</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('subAreas.createe', [$area->id]) !!}"><i class="fa fa-fw fa-plus"></i>Añadir Nuevo</a>
         </h1>
     </section>
     <div class="content">

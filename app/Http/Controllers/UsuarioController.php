@@ -61,7 +61,7 @@ class UsuarioController extends AppBaseController
 
         $usuario = $this->usuarioRepository->create($input);
 
-        Flash::success('Usuario saved successfully.');
+        Flash::success('Usuario guardado con éxito.');
 
         return redirect(route('usuarios.index'));
     }
@@ -78,7 +78,7 @@ class UsuarioController extends AppBaseController
         $usuario = $this->usuarioRepository->find($id);
 
         if (empty($usuario)) {
-            Flash::error('Usuario not found');
+            Flash::error('Usuario no encontrado');
 
             return redirect(route('usuarios.index'));
         }
@@ -98,7 +98,7 @@ class UsuarioController extends AppBaseController
         $usuario = $this->usuarioRepository->find($id);
 
         if (empty($usuario)) {
-            Flash::error('Usuario not found');
+            Flash::error('Usuario no encontrado');
 
             return redirect(route('usuarios.index'));
         }
@@ -119,14 +119,14 @@ class UsuarioController extends AppBaseController
         $usuario = $this->usuarioRepository->find($id);
         
         if (empty($usuario)) {
-            Flash::error('Usuario not found');
+            Flash::error('Usuario no encontrado');
 
             return redirect(route('usuarios.index'));
         }
 
         $usuario = $this->usuarioRepository->update($request->all(), $id);
 
-        Flash::success('Usuario updated successfully.');
+        Flash::success('Usuario actualizado con éxito.');
 
         return redirect(route('usuarios.index'));
     }
@@ -145,14 +145,14 @@ class UsuarioController extends AppBaseController
         $usuario = $this->usuarioRepository->find($id);
 
         if (empty($usuario)) {
-            Flash::error('Usuario not found');
+            Flash::error('Usuario no encontrado');
 
             return redirect(route('usuarios.index'));
         }
 
         $this->usuarioRepository->delete($id);
 
-        Flash::success('Usuario deleted successfully.');
+        Flash::success('Usuario eliminado con éxito.');
 
         return redirect(route('usuarios.index'));
     }

@@ -31,6 +31,7 @@ class E_informatico extends Model
         'mac',
         'numero_activo',
         'modelo',
+        'marca',
         'numero_serie',
         'usuario_id',
         'unidad_id',
@@ -50,7 +51,8 @@ class E_informatico extends Model
         'mac' => 'string',
         'numero_activo' => 'integer',
         'modelo' => 'string',
-        'numero_serie' => 'integer'
+        'marca' => 'string',
+        'numero_serie' => 'string'
     ];
 
     /**

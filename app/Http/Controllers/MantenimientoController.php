@@ -18,6 +18,7 @@ use App\Models\E_informatico;
 use App\Models\Mantenimiento;
 use App\Models\Gestion;
 use App\Models\Cite;
+use PDF;
 
 
 class MantenimientoController extends AppBaseController
@@ -55,12 +56,17 @@ class MantenimientoController extends AppBaseController
     {
         return E_informatico::where('sub_area_id', $id)->get();
     }
+
+    
     /** @var  MantenimientoRepository */
     private $mantenimientoRepository;
 
     public function __construct(MantenimientoRepository $mantenimientoRepo)
     {
         $this->mantenimientoRepository = $mantenimientoRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador,estudiante'
+                    ]);
 
     }
 
@@ -73,12 +79,7 @@ class MantenimientoController extends AppBaseController
      */
     public function index(Request $request)
     {
-                
-
-               
-
         $mantenimientos = $this->mantenimientoRepository->all();
-
         return view('mantenimientos.index')
             ->with('mantenimientos', $mantenimientos);
     }
@@ -114,7 +115,7 @@ class MantenimientoController extends AppBaseController
         $gestion = Gestion::find(1);
 
         $cite = new Cite;
-        $cite->gestion_id=$gestion->id;
+        $cite->gestion_id=$gestion->gestion;
         $cite->mantenimiento_id=$mantenimiento->id;
         $cite->save();
         $cites = cite::find($cite->id-1);
@@ -155,8 +156,18 @@ class MantenimientoController extends AppBaseController
 
             return redirect(route('mantenimientos.index'));
         }
+        $pdf = PDF::loadView('mantenimientos.pdf', compact('mantenimientos'))->setPaper(array(0, 0, 612, 792), 'landscape');
+        return $pdf->stream();
+        
+    }
+    public function imprimir(){
+      $mantenimientos = Mantenimiento::all();
+      
+      $pdf = PDF::loadView('mantenimientos.pdf', compact('mantenimientos'))->setPaper('a4', 'landscape');
+      
+      return $pdf->stream();
 
-        return view('mantenimientos.show')->with('mantenimientos', $mantenimientos);
+      
     }
 
     /**

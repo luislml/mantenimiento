@@ -18,6 +18,9 @@ class UnidadController extends AppBaseController
     public function __construct(UnidadRepository $unidadRepo)
     {
         $this->unidadRepository = $unidadRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**

@@ -43,6 +43,9 @@ class personafController extends AppBaseController
     public function __construct(personafRepository $personafRepo)
     {
         $this->personafRepository = $personafRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**

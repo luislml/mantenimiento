@@ -46,7 +46,7 @@
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('ci') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="C.I.">
+                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="Ej. 10539845 o 1053658L">
                 <span class="fa fa-newspaper-o form-control-feedback"></span>
                 @if ($errors->has('ci'))
                     <span class="help-block">
@@ -56,7 +56,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Contraseña" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">

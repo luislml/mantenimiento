@@ -44,7 +44,7 @@ class User extends Authenticatable
             if ($this->rol === $rol ) 
             {
                 return true;
-            }
+            } 
         }
         return false; 
     }

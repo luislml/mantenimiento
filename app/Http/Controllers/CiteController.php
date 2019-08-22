@@ -11,6 +11,7 @@ use Flash;
 use Response;
 use App\Models\Gestion;
 use App\Models\Cite;
+use PDF;
 class CiteController extends AppBaseController
 {
     /** @var  CiteRepository */
@@ -19,6 +20,9 @@ class CiteController extends AppBaseController
     public function __construct(CiteRepository $citeRepo)
     {
         $this->citeRepository = $citeRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**
@@ -82,6 +86,7 @@ class CiteController extends AppBaseController
     public function show($id)
     {
         $cite = $this->citeRepository->find($id);
+        
 
         if (empty($cite)) {
             Flash::error('Cite not found');
@@ -89,7 +94,8 @@ class CiteController extends AppBaseController
             return redirect(route('cites.index'));
         }
 
-        return view('cites.show')->with('cite', $cite);
+        $pdf = PDF::loadView('cites.pdf', compact('cite'))->setPaper(array(0, 0, 612, 792), 'portrait');
+        return $pdf->stream();
     }
 
     /**

@@ -10,7 +10,7 @@
         <tbody>
         @foreach($userequipos as $userequipo)
             <tr>
-                <td>{!! $userequipo->usuario['nombre'] !!}</td>
+                <td>{!! $userequipo->usuario['nombre'] !!} {!! $userequipo->usuario['apellido'] !!}</td>
             <td>{!! $userequipo->nombre !!}</td>
                 <td>
                     {!! Form::open(['route' => ['userequipos.destroy', $userequipo->id], 'method' => 'delete']) !!}

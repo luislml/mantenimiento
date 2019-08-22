@@ -19,6 +19,7 @@ class CreateEInformaticosTable extends Migration
             $table->string('mac')->nullable();
             $table->integer('numero_activo')->nullable();
             $table->string('modelo')->nullable();
+            $table->string('marca')->nullable();
             $table->string('numero_serie')->nullable();
             $table->string('estado')->nullable();
 

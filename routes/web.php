@@ -25,6 +25,9 @@ Route::get('/home', 'HomeController@index');
 Route::resource('usuarios', 'UsuarioController');
 
 Route::resource('eInformaticos', 'E_informaticoController');
+route::post('eInformaticos/equipos', ['as'=>'eInformaticos.equipo', 'uses'=>'E_informaticoController@equipo']);
+route::post('eInformaticos/modelos', ['as'=>'eInformaticos.modelo', 'uses'=>'E_informaticoController@modelo']);
+route::post('eInformaticos/marcas', ['as'=>'eInformaticos.marca', 'uses'=>'E_informaticoController@marca']);
 
 Route::resource('unidads', 'UnidadController');
 
@@ -54,7 +57,7 @@ route::get('personafs/{personaf}/editestado', ['as'=>'personafs.editestado', 'us
 
 
 
-Route::resource('listarUas', 'Listar_uasController');
+
 
 
 
@@ -64,9 +67,16 @@ route::get('equipounidadsinsert', ['as'=>'equipounidads.equipoinsert', 'uses'=>'
 route::post('equipounidadsupdate', ['as'=>'equipounidads.equipoupdate', 'uses'=>'EquipounidadController@updatee']);
 Route::Get('getareas/{id}', 'EquipounidadController@getareas');
 Route::Get('getsubareas/{id}', 'EquipounidadController@getsubareas');
+Route::Get('equipounidads/{d}/getusuarios/{id}', 'EquipounidadController@getusuarios');
+Route::Get('equipounidads/{d}/getusuarios_a/{id}', 'EquipounidadController@getusuarios_a');
+Route::Get('equipounidads/{d}/getusuarios_sa/{id}', 'EquipounidadController@getusuarios_sa');
+Route::Get('equipounidads/get_equipos/{id}', 'EquipounidadController@getequipos');
+Route::Get('equipounidads/getequipos_a/{id}', 'EquipounidadController@getequipos_a');
+Route::Get('equipounidads/getequipos_sa/{id}', 'EquipounidadController@getequipos_sa');
 Route::Get('equipounidads/{d}/areas/{id}', 'EquipounidadController@getareas_a');
 Route::Get('equipounidads/{d}/subareas/{id}', 'EquipounidadController@getsubareas_a');
 route::get('equipounidads/{equipou}/editestado', ['as'=>'equipounidads.editestado', 'uses'=>'EquipounidadController@editestado']);
+route::post('equipounidads/print', ['as'=>'equipounidads.print', 'uses'=>'EquipounidadController@print']);
 
 
 Route::resource('userequipos', 'UserequipoController');
@@ -79,6 +89,8 @@ Route::Get('userequipos/getusuariosa/{id}', 'UserequipoController@getusuariosa')
 Route::Get('userequipos/getequiposa/{id}', 'UserequipoController@getequiposa');
 Route::Get('userequipos/getusuariossa/{id}', 'UserequipoController@getusuariossa');
 Route::Get('userequipos/getequipossa/{id}', 'UserequipoController@getequipossa');
+Route::Get('userequipos/getusuariose/{id}', 'UserequipoController@getusuariose');
+Route::Get('/imprimirr', 'UserequipoController@imprimir')->name('qr');
 
 
 
@@ -100,6 +112,10 @@ Route::Get('mantenimientos/getusuariosa/{id}', 'MantenimientoController@getusuar
 Route::Get('mantenimientos/getequiposa/{id}', 'MantenimientoController@getequiposa');
 Route::Get('mantenimientos/getusuariossa/{id}', 'MantenimientoController@getusuariossa');
 Route::Get('mantenimientos/getequipossa/{id}', 'MantenimientoController@getequipossa');
+Route::Get('/imprimirr', 'MantenimientoController@imprimir');
+
+
+
 
 Route::resource('cites', 'CiteController');
 route::post('cites', ['as'=>'gestion.update', 'uses'=>'CiteController@gestion']);
@@ -118,3 +134,14 @@ route::get('create/{observacion}', ['as'=>'observacions.create', 'uses'=>'Observ
 Route::resource('recomendacions', 'RecomendacionController');
 route::get('recomendacions/{recomendacion}', ['as'=>'recomendacions.indexid', 'uses'=>'RecomendacionController@index']);
 route::get('rcreate/{recomendacion}', ['as'=>'recomendacions.create', 'uses'=>'RecomendacionController@create']);
+
+Route::get('/imprimir', 'RecomendacionController@imprimir')->name('print');
+
+
+Route::resource('equipos', 'EquipoController');
+
+Route::resource('modelos', 'ModeloController');
+
+Route::resource('marcas', 'MarcaController');
+
+Route::resource('historiales', 'HistorialeController');

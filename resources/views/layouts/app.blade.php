@@ -8,8 +8,9 @@
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-    <!-- Font Awesome -->
+    <!-- Font Awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
 
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/AdminLTE.min.css">
@@ -23,6 +24,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css"> 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     @yield('css')
 </head>
@@ -35,7 +38,10 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>Mantenimiento</b>
+                <div class="pull-left image"><img width="45" src={{asset('img/tuerca.png')}}
+                                     class="img-circle" alt="User Image"/>
+                                      <b>Mantenimiento</b>
+                                  </div>
             </a>
 
             <!-- Header Navbar -->
@@ -52,18 +58,18 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                <img src={{asset('img/LogoSedes2019-Oficial-peq.png')}}
                                      class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{!! Auth::user()->nombre !!}</span>
+                                <span class="hidden-xs">{!! Auth::user()->nombre !!} {!! Auth::user()->apellido !!}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                    <img src={{asset('img/LogoSedes2019-Oficial-peq.png')}}
                                          class="img-circle" alt="User Image"/>
                                     <p>
-                                        {!! Auth::user()->name !!}
+                                        {!! Auth::user()->nombre !!} {!! Auth::user()->apellido !!}
                                         <small>Miembro desde {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
@@ -94,7 +100,8 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
-            @if(auth()->user()->rol != 'Admin')
+            
+            @if(auth()->user()->rol == '')
                 <li>
                     <h1 style="max-height: 100px;text-align: center">CUENTA INACTIVA</h1>
                 </li>
@@ -166,6 +173,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> 
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"></script>
 
     @yield('scripts')
 </body>

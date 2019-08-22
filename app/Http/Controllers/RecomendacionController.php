@@ -154,4 +154,10 @@ class RecomendacionController extends AppBaseController
 
         return redirect(route('recomendacions.index'));
     }
+
+
+    public function imprimir(){
+     $pdf = \PDF::loadView('pdf.mantenimiento')->setPaper('a4', 'portrait');
+     return $pdf->download('ejemplo.pdf');
+}
 }

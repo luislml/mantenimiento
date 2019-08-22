@@ -30,6 +30,7 @@ class Equipounidad extends Model
         'unidad_id',
         'area_id',
         'sub_area_id',
+        'usuario_id',
         'estado'
     ];
 

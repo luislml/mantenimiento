@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Observacion {{ $id }}
+            Observacion 
         </h1>
     </section>
     <div class="content">

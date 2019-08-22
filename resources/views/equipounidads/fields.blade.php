@@ -15,7 +15,6 @@
        </select>
 </div>
 
-
 <div class="col-md-3">
    <label for="" class="control-label">Seleccione Sub Area</label>
       <select name="sub_area_id" id="subarea" class="form-control">
@@ -23,6 +22,13 @@
        </select>
 </div>
 
+<!-- Usuario Id Field -->
+<div class="col-md-3">
+   <label for="" class="control-label">Seleccione usuario</label>
+      <select name="usuario_id" id="usuario_id" class="form-control">
+           <option value="">Seleccione usuario</option>
+       </select>
+</div>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

@@ -28,3 +28,16 @@
     <p>{!! $userequipo->updated_at !!}</p>
 </div>
 
+<div class="form-group">
+    <h4>QR code</h4>
+    {!! QrCode::size(300)->generate(
+        "
+        nombre:$usuario->nombre 
+        apellido:$usuario->apellido 
+        equipo:$userequipo->nombre
+        modelo:$userequipo->modelo
+        unidad:$unidad->nombre
+        "); !!}
+    
+</div>
+

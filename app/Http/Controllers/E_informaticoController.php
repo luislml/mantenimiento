@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Equipo;
+use App\Models\Modelo;
+use App\Models\Marca;
+use App\Models\E_informatico;
 
 
 class E_informaticoController extends AppBaseController
@@ -40,7 +44,7 @@ class E_informaticoController extends AppBaseController
     public function index(Request $request)
     {
         $eInformaticos = $this->eInformaticoRepository->all();
-
+        
         return view('e_informaticos.index')
             ->with('eInformaticos', $eInformaticos);
     }
@@ -52,7 +56,13 @@ class E_informaticoController extends AppBaseController
      */
     public function create()
     {
-        return view('e_informaticos.create');
+        $equipos = Equipo::all();
+        $modelos = Modelo::all();
+        $marcas = Marca::all();
+        return view('e_informaticos.create')
+        ->with('equipos', $equipos)
+        ->with('modelos', $modelos)
+        ->with('marcas', $marcas);
     }
 
     /**
@@ -65,10 +75,10 @@ class E_informaticoController extends AppBaseController
     public function store(CreateE_informaticoRequest $request)
     {
         $input = $request->all();
-
+        
         $eInformatico = $this->eInformaticoRepository->create($input);
 
-        Flash::success('E Informatico saved successfully.');
+        Flash::success('Equipo Informatico Guardado exitosamente.');
 
         return redirect(route('eInformaticos.index'));
     }
@@ -85,7 +95,7 @@ class E_informaticoController extends AppBaseController
         $eInformatico = $this->eInformaticoRepository->find($id);
 
         if (empty($eInformatico)) {
-            Flash::error('E Informatico not found');
+            Flash::error('Equipo Informatico no encontrado');
 
             return redirect(route('eInformaticos.index'));
         }
@@ -103,14 +113,14 @@ class E_informaticoController extends AppBaseController
     public function edit($id)
     {
         $eInformatico = $this->eInformaticoRepository->find($id);
-
+        $equipos = Equipo::all();
         if (empty($eInformatico)) {
-            Flash::error('E Informatico not found');
+            Flash::error('Equipo Informatico no encontrado');
 
             return redirect(route('eInformaticos.index'));
         }
 
-        return view('e_informaticos.edit')->with('eInformatico', $eInformatico);
+        return view('e_informaticos.edit')->with('eInformatico', $eInformatico)->with('equipos', $equipos);;
     }
 
     /**
@@ -126,14 +136,14 @@ class E_informaticoController extends AppBaseController
         $eInformatico = $this->eInformaticoRepository->find($id);
 
         if (empty($eInformatico)) {
-            Flash::error('E Informatico not found');
+            Flash::error('Equipo Informatico no encontrado');
 
             return redirect(route('eInformaticos.index'));
         }
 
         $eInformatico = $this->eInformaticoRepository->update($request->all(), $id);
 
-        Flash::success('E Informatico updated successfully.');
+        Flash::success('Equipo Informatico actualizado con éxito.');
 
         return redirect(route('eInformaticos.index'));
     }
@@ -152,15 +162,49 @@ class E_informaticoController extends AppBaseController
         $eInformatico = $this->eInformaticoRepository->find($id);
 
         if (empty($eInformatico)) {
-            Flash::error('E Informatico not found');
+            Flash::error('Equipo Informatico no encontrado');
 
             return redirect(route('eInformaticos.index'));
         }
 
         $this->eInformaticoRepository->delete($id);
 
-        Flash::success('E Informatico deleted successfully.');
+        Flash::success('Equipo Informatico borrado exitosamente.');
 
         return redirect(route('eInformaticos.index'));
+    }
+
+    /*equipo*/
+    public function equipo(Request $request)
+    {
+        $input = $request->all();
+       
+        $eInformatico = Equipo::create($input);
+
+        Flash::success('Equipo Informatico Guardado exitosamente.');
+
+        return redirect(route('eInformaticos.create'));
+    }
+    /*modelo*/
+    public function modelo(Request $request)
+    {
+        $input = $request->all();
+        
+        $eInformatico = Modelo::create($input);
+
+        Flash::success('modelo Guardado exitosamente.');
+
+        return redirect(route('eInformaticos.create'));
+    }
+    /*Marca*/
+    public function marca(Request $request)
+    {
+        $input = $request->all();
+        
+        $eInformatico = Marca::create($input);
+
+        Flash::success('Marca Guardado exitosamente.');
+
+        return redirect(route('eInformaticos.create'));
     }
 }

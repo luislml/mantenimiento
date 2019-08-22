@@ -65,5 +65,16 @@ class Cite extends Model
         return $this->belongsTo(Mantenimiento::class);
     }
 
+    public function observacion()
+    {   // creamos una relación con el modelo de observacion
+        return $this->hasMany(Observacion::class);
+    }
+
+    public function recomendacion()
+    {   // creamos una relación con el modelo de recomendacion
+        return $this->hasMany(Recomendacion::class);
+    }
+
+
     
 }

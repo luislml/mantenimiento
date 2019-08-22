@@ -33,6 +33,9 @@ class Sub_AreaController extends AppBaseController
     public function __construct(Sub_AreaRepository $subAreaRepo)
     {
         $this->subAreaRepository = $subAreaRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**

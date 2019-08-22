@@ -12,12 +12,15 @@
         </thead>
         <tbody>
         @foreach($cites as $cite)
+        @if($cite->gestion_id == $gestion->gestion)
+       
+        
             <tr>
-                <td>{!! $cite->gesttion['gestion'] !!}</td>
+                <td>{!! $cite->gestion_id !!}</td>
             <td>{!! $cite->mantenimiento['equipos']['nombre'] !!}</td>
             <td>{!! $cite->mantenimiento['equipos']['usuario']['nombre'] !!} {!! $cite->mantenimiento['equipos']['usuario']['apellido'] !!}</td>
             <td>{!! $cite->mantenimiento['equipos']['unidad']['nombre'] !!}</td>
-            <td>{!! $cite->id !!}</td>
+            <td>{!! $cite->cite !!}</td>
                 <td>
                     {!! Form::open(['route' => ['cites.destroy', $cite->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -26,6 +29,7 @@
                        
                         <a href="{!! route('observacions.indexid', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="btn btn-default btn-xs"></i>Observacions</a>
                         <a href="{!! route('recomendacions.indexid', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="btn btn-default btn-xs"></i>Recomendacions</a>
+                        <a target="_blank" href="{!! route('cites.show', [$cite->id]) !!}" class='btn btn-default btn-xs' ><i class="glyphicon glyphicon-eye-open"></i></a>
                         
 
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
@@ -33,6 +37,7 @@
                     {!! Form::close() !!}
                 </td>
             </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

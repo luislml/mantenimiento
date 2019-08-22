@@ -1,23 +1,23 @@
 <div class="table-responsive">
-    <table class="table" id="usuarios-table">
+    <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Ci</th>
-        <th>Telefono</th>
-        <th>Rol</th>
-                <th colspan="3">Action</th>
+                <th>Apellido</th>
+                <th>Ci</th>
+                <th>Telefono</th>
+                <th>Rol</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($usuarios as $usuario)
+            @foreach($usuarios as $usuario)
             <tr>
                 <td>{!! $usuario->nombre !!}</td>
-            <td>{!! $usuario->apellido !!}</td>
-            <td>{!! $usuario->ci !!}</td>
-            <td>{!! $usuario->telefono !!}</td>
-            <td>{!! $usuario->rol !!}</td>
+                <td>{!! $usuario->apellido !!}</td>
+                <td>{!! $usuario->ci !!}</td>
+                <td>{!! $usuario->telefono !!}</td>
+                <td>{!! $usuario->rol !!}</td>
                 <td>
                     {!! Form::open(['route' => ['usuarios.destroy', $usuario->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -31,6 +31,45 @@
                 </td>
             </tr>
         @endforeach
+            
         </tbody>
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Ci</th>
+                <th>Telefono</th>
+                <th>Rol</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#usuarios').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        } );
+    </script>
+@endsection

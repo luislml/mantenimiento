@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Rules\nombre;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -49,10 +49,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => 'required|string',
-            'apellido' => 'required|string',
-            'ci' => 'required|string|unique:users|min:6|max:12',
-            'telefono' => 'required',
+            'nombre' => 'required|string|regex:/^[a-z, ]+$/',
+            'apellido' => 'required|string|regex:/^[a-z, ]+$/',
+            'ci' => 'required|string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
+            'telefono' => 'required|numeric',
             'estado' => 'required',
             'password' => 'required|string|min:3|confirmed', 
         ]);
@@ -66,6 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         
         return User::create([
             'nombre' => $data['nombre'],

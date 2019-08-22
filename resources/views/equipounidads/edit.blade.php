@@ -45,6 +45,18 @@
                 })
 
       });
+      $.get('getusuarios/'+categoria, function(data){
+//esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion
+        
+        console.log(data);
+          $('#usuario_id').empty();
+                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+
+            $.each(data, function (index, value) {
+             
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                })
+      });
     });
   });
 </script>
@@ -67,8 +79,38 @@
                 })
 
       });
+      $.get('getusuarios_a/'+categoria, function(data){
+//esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion
+        
+        console.log(data);
+          $('#usuario_id').empty();
+                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+
+            $.each(data, function (index, value) {
+             
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                })
+      });
     });
   });
 </script>
+<script>
+  $(document).ready(function(){
+    $("#subarea").change(function(){
+      var categoria = $(this).val();
+      $.get('getusuarios_sa/'+categoria, function(data){
+//esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion    
+        console.log(data);
+          $('#usuario_id').empty();
+                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+
+            $.each(data, function (index, value) {
+             
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                })
+      });
+    });
+  });
 </script>
+
 @endsection

@@ -48,5 +48,10 @@ class Recomendacion extends Model
         
     ];
 
+    public function cite()
+    {
+        return $this->belongsTo(Cite::class);
+    }
+
     
 }

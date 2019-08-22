@@ -14,6 +14,7 @@ use App\Models\Area;
 use App\Models\Sub_Area;
 use App\Models\Usuario;
 use App\Models\E_informatico;
+use PDF;
 
 class UserequipoController extends AppBaseController
 {
@@ -32,7 +33,9 @@ class UserequipoController extends AppBaseController
     }
     public function getequipos($id)
     {
-        return E_informatico::where('unidad_id', $id)->get();
+        return E_informatico::where('unidad_id', $id)
+        ->where('usuario_id', null)
+        ->get();
     }
     public function getusuariosa($id)
     {
@@ -40,7 +43,9 @@ class UserequipoController extends AppBaseController
     }
     public function getequiposa($id)
     {
-        return E_informatico::where('area_id', $id)->get();
+        return E_informatico::where('area_id', $id)
+        ->where('usuario_id', null)
+        ->get();
     }
     public function getusuariossa($id)
     {
@@ -48,7 +53,13 @@ class UserequipoController extends AppBaseController
     }
     public function getequipossa($id)
     {
-        return E_informatico::where('sub_area_id', $id)->get();
+        return E_informatico::where('sub_area_id', $id)
+        ->where('usuario_id', null)
+        ->get();
+    }
+    public function getusuariose($id)
+    {
+        return E_informatico::where('usuario_id', $id)->get();
     }
     /** @var  UserequipoRepository */
     private $userequipoRepository;
@@ -56,6 +67,9 @@ class UserequipoController extends AppBaseController
     public function __construct(UserequipoRepository $eInformaticoRepo)
     {
         $this->userequipoRepository = $eInformaticoRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**
@@ -96,12 +110,12 @@ class UserequipoController extends AppBaseController
     public function store(CreateUserequipoRequest $request)
     {
         $input = $request->all();
-
+        
         $id = $request->id;
         $userequipo = E_informatico::find($id);
         
         $userequipo = $this->userequipoRepository->update($request->all(), $id);
-        Flash::success('Userequipo saved successfully.');
+        Flash::success('Equipo Reasignado Correctamente.');
 
         return redirect(route('userequipos.index'));
     }
@@ -116,15 +130,20 @@ class UserequipoController extends AppBaseController
     public function show($id)
     {
         $userequipo = $this->userequipoRepository->find($id);
-
+        $usuario = Usuario::find($userequipo->usuario_id);
+        $unidad = Unidad::find($userequipo->unidad_id);
+     
         if (empty($userequipo)) {
             Flash::error('Userequipo not found');
 
             return redirect(route('userequipos.index'));
         }
+        $pdf = PDF::loadView('userequipos.pdf', compact('userequipo','usuario','unidad'))->setPaper(array(0, 0, 612, 792), 'portraid');
+        return $pdf->stream();
 
-        return view('userequipos.show')->with('userequipo', $userequipo);
+        //return view('userequipos.show')->with('userequipo', $userequipo)->with('usuario', $usuario)->with('unidad', $unidad);
     }
+   
 
     /**
      * Show the form for editing the specified Userequipo.

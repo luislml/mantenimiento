@@ -48,5 +48,10 @@ class Observacion extends Model
         'observacion' => 'required'
     ];
 
+    public function cite()
+    {
+        return $this->belongsTo(Cite::class);
+    }
+
     
 }
