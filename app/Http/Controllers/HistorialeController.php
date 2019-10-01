@@ -9,6 +9,12 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\E_informatico;
+use App\Models\Unidad;
+use App\Models\Area;
+use App\Models\Sub_Area;
+use App\Models\Usuario;
+use PDF;
 
 class HistorialeController extends AppBaseController
 {
@@ -72,15 +78,22 @@ class HistorialeController extends AppBaseController
      */
     public function show($id)
     {
-        $historiale = $this->historialeRepository->find($id);
-
-        if (empty($historiale)) {
+        $usuario = Usuario::all();
+        $unidad = Unidad::all();
+        $area = Area::all();
+        $subarea = Sub_Area::all();
+        $eactual = E_informatico::find($id);
+        $historiales = $eactual->historial;
+         
+        if (empty($historiales)) {
             Flash::error('Historiale not found');
 
             return redirect(route('historiales.index'));
         }
 
-        return view('historiales.show')->with('historiale', $historiale);
+        
+        $pdf = PDF::loadView('historiales.show', compact('historiales','usuario','unidad','area','subarea','eactual'))->setPaper(array(0, 0, 612, 792), 'portrait');
+        return $pdf->stream();
     }
 
     /**

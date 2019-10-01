@@ -2,17 +2,18 @@
     <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Ci</th>
-                <th>Telefono</th>
-                <th>Rol</th>
-                <th>Action</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>C.I.</th>
+                <th>TELEFONO O CELL</th>
+                <th>ROL</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
             @foreach($usuarios as $usuario)
             <tr>
+                @if(!empty($usuario->password))
                 <td>{!! $usuario->nombre !!}</td>
                 <td>{!! $usuario->apellido !!}</td>
                 <td>{!! $usuario->ci !!}</td>
@@ -29,18 +30,20 @@
                     </div>
                     {!! Form::close() !!}
                 </td>
+                @endif
+                
             </tr>
         @endforeach
             
         </tbody>
         <tfoot>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Ci</th>
-                <th>Telefono</th>
-                <th>Rol</th>
-                <th>Action</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>C.I.</th>
+                <th>TELEFONO O CELL</th>
+                <th>ROL</th>
+                <th>ACCION</th>
             </tr>
         </tfoot>
     </table>

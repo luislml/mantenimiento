@@ -5,16 +5,9 @@
 </li>
 @endif-->
 @if(auth()->user()->hasRoles(['Admin']))
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-user"></i> <span>Usuarios</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="{!! route('usuarios.create') !!}"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
-            <li><a href="{!! route('usuarios.index') !!}"><i class="fa fa-list-ol"></i>Listar Usuarios</a></li>
-        </ul>
-    </li>
+    <li class="{{ Request::is('usuarios*') ? 'active' : '' }}">
+    <a href="{!! route('usuarios.index') !!}"><i class="fa fa-user "></i><span>Usuarios</span></a>
+</li>
 @endif
 
 <!--@if(auth()->user()->hasRoles(['Admin','operador']))
@@ -51,8 +44,8 @@
         <ul class="treeview-menu">
             <li><a href="{!! route('eInformaticos.index') !!}"><i class="fa fa-laptop"></i>Equipos</a></li>
             <li><a href="{!! route('eInformaticos.create') !!}"><i class="fa fa-plus"></i>Nuevo Equipo</a></li>
-            <li><a href="{!! route('equipounidads.equipoinsert') !!}"><i class="fa fa-share"></i>Asignar Equipo A Unidad</a></li>
-            <li><a href="{!! route('userequipos.create') !!}"><i class="fa fa-share"></i>Asignar Equipo A Usuario</a></li>
+            <!--<li><a href="{!! route('equipounidads.equipoinsert') !!}"><i class="fa fa-share"></i>Asignar Equipo A Unidad</a></li>
+            <li><a href="{!! route('userequipos.create') !!}"><i class="fa fa-share"></i>Asignar Equipo A Usuario</a></li>-->
             <li><a href="{!! route('equipounidads.index') !!}"><i class="fa fa-list-ol"></i>Listar Equipos Asignados</a></li>
         </ul>
     </li>
@@ -134,9 +127,10 @@
 
 <li class="{{ Request::is('marcas*') ? 'active' : '' }}">
     <a href="{!! route('marcas.index') !!}"><i class="fa fa-edit"></i><span>Marcas</span></a>
-</li>-->
-
+</li>
 <li class="{{ Request::is('historiales*') ? 'active' : '' }}">
     <a href="{!! route('historiales.index') !!}"><i class="fa fa-edit"></i><span>Historiales</span></a>
-</li>
+</li>-->
+
+
 

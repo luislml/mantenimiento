@@ -11,6 +11,16 @@
 
         <!-- Styles -->
         <style>
+    html {
+        height:100%;
+        width:100%;
+    }
+    body{
+        background:#8ba987 url({{asset('img/fon.jpg')}}) no-repeat center center;
+        background-size:100% 100%;
+    }
+    </style>
+        <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -62,8 +72,10 @@
                 margin-bottom: 30px;
             }
         </style>
+        
     </head>
-    <body>
+    
+        <body background="{{asset('img/fon.jpg')}}" style="background-repeat:no-repeat; background-position:center" bgproperties="fixed">
         
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -71,10 +83,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">entrar</a>
+                        <a href="{{ route('login') }}" style="color:white";> <span>INICIAR SESION</span> </a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrarse</a>
+                            <a href="{{ route('register') }}" style="color:white";>REGISTRARSE</a>
                         @endif
                     @endauth
                 </div>
@@ -82,7 +94,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    MANTENIMIENTO
+                     <p style="color:white";>MANTENIMIENTO
+                                              DE EQUIPOS 
+                                             INFORMATICOS</p>
                 </div>
 
                

@@ -57,5 +57,10 @@ class Historiale extends Model
         
     ];
 
+    public function equipos()
+    {
+        return $this->belongsTo(E_informatico::class);
+    }
+
     
 }

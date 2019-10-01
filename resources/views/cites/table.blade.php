@@ -1,13 +1,13 @@
 <div class="table-responsive">
-    <table class="table" id="cites-table">
+    <table class="table table-striped table-bordered" style="width:100%" id="cites-table">
         <thead>
             <tr>
-                <th>Gestion</th>
-                <th>Equipo</th>
-                <th>funcionario</th>
-                <th>Unidad</th>
-                <th>Cite</th>
-                <th colspan="3">Action</th>
+                <th>GESTION</th>
+                <th>EQUIPO</th>
+                <th>FUNCIONARIO</th>
+                <th>UNIDAD</th>
+                <th>CITE</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
@@ -25,11 +25,9 @@
                     {!! Form::open(['route' => ['cites.destroy', $cite->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         
-                        <a href="{!! route('cites.edit', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{!! route('cites.edit', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR</a>
                        
-                        <a href="{!! route('observacions.indexid', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="btn btn-default btn-xs"></i>Observacions</a>
-                        <a href="{!! route('recomendacions.indexid', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="btn btn-default btn-xs"></i>Recomendacions</a>
-                        <a target="_blank" href="{!! route('cites.show', [$cite->id]) !!}" class='btn btn-default btn-xs' ><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a target="_blank" href="{!! route('cites.show', [$cite->id]) !!}" class='btn btn-default btn-xs' ><i class="glyphicon glyphicon-eye-open"></i>IMPRIMIR</a>
                         
 
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
@@ -40,5 +38,43 @@
             @endif
         @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <th>GESTION</th>
+                <th>EQUIPO</th>
+                <th>FUNCIONARIO</th>
+                <th>UNIDAD</th>
+                <th>CITE</th>
+                <th>ACCION</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#cites-table').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        } );
+    </script>
+@endsection

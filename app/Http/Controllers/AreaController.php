@@ -105,7 +105,7 @@ class AreaController extends AppBaseController
         $area = $this->areaRepository->create($input);
         
 
-        Flash::success('Area saved successfully.');
+        Flash::success('AREA GUARDADA CORRECTAMENTE.');
 
         return redirect(route('areass.indexx', [$area->unidad_id]));
     }

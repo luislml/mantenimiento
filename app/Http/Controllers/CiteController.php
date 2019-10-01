@@ -129,7 +129,7 @@ class CiteController extends AppBaseController
     public function update($id, UpdateCiteRequest $request)
     {
         $cite = $this->citeRepository->find($id);
-
+       
         if (empty($cite)) {
             Flash::error('Cite not found');
 

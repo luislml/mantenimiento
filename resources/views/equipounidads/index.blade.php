@@ -3,15 +3,14 @@
 @section('content')
 
     <section class="content-header">
-        <h1 class="pull-left">Equipo-unidad</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('equipounidads.equipoinsert') !!}"><i class="fa fa-fw fa-plus"></i>Añadir Nuevo</a>
-        </h1>
+        <h1 class="pull-left">EQUIPOS ASIGNADOS</h1>
+        
     </section>
     <div class="content">
         <div class="clearfix"></div>
 
         @include('flash::message')
+
 
         <div class="clearfix"></div>
         {!! Form::open(['route' => 'equipounidads.print', 'target'=>'_blank']) !!}
@@ -19,9 +18,9 @@
             <div class="box-body">
               
                 <div class="col-md-3">
-                   <label for="" class="control-label">Seleccione Unidad</label>
+                   <label for="" class="control-label">SELECCIONE UNIDAD:</label>
                       <select name="unidad_id" id="unidad" class="form-control">
-                         <option value="">Seleccione</option>
+                         <option value="">SELECCIONE UNIDAD</option>
                          @foreach ($unidad as $unidads)
                             <option value="{{$unidads->id}}">{{$unidads->nombre}}</option>
                          @endforeach
@@ -29,23 +28,23 @@
                 </div>
                                             
                 <div class="col-md-3">
-                   <label for="" class="control-label">Seleccione Area</label>
+                   <label for="" class="control-label">SELECCIONE AREA:</label>
                       <select name="area_id" id="area" class="form-control">
-                           <option value="">Seleccione area</option>
+                           <option value="">SELECCIONE AREA</option>
                        </select>
                 </div>
 
                 <div class="col-md-3">
-                   <label for="" class="control-label">Seleccione Sub Area</label>
+                   <label for="" class="control-label">SELECCIONE SUB AREA:</label>
                       <select name="sub_area_id" id="subarea" class="form-control">
-                           <option value="">Seleccione sub area</option>
+                           <option value="">SELECCIONE SUB AREA</option>
                        </select>
                 </div>
                 <!-- Usuario Id Field -->
                 <div class="col-md-3">
-                   <label for="" class="control-label">Seleccione usuario</label>
+                   <label for="" class="control-label">SELECCIONE USUARIO:</label>
                       <select name="usuario_id" id="usuario_id" class="form-control">
-                           <option value="">Seleccione usuario</option>
+                           <option value="">SELECCIONE USUARIO</option>
                        </select>
                 </div>
                 
@@ -58,7 +57,7 @@
             </div>
         </div>
 
-          {!! Form::submit('print', ['class' => 'btn btn-primary']) !!}
+          {!! Form::submit('IMPRIMIR', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
     </div>
 @endsection
@@ -73,7 +72,7 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion     
         console.log(data);
           $('#area').empty();
-                $('#area').append("<option value=''>Selecciona Area</option>");
+                $('#area').append("<option value=''>SELECCIONE AREA</option>");
 
             $.each(data, function (index, value) {
              
@@ -84,11 +83,11 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion  
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              
-                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +" "+ value.apellido +"</option>");
                 })
       });
 
@@ -105,7 +104,7 @@
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
-              "<td>"+ value.nombre +"</td>"+
+              "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
               "<td>"+ value.mac +"</td>"+
               "<td>"+ value.numero_activo +"</td>"+
               "<td>"+ value.modelo +"</td>"+
@@ -114,9 +113,11 @@
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
               "</div>"+ 
               "</td>"+
-              "</tr></tbody>"
+              "</tr></tbody>" 
               );
           })
       });
@@ -132,7 +133,7 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion    
         console.log(data);
           $('#subarea').empty();
-                $('#subarea').append("<option value=''>Selecciona Sub Area</option>");
+                $('#subarea').append("<option value=''>SELECCIONE SUB AREA</option>");
 
             $.each(data, function (index, value) {
              
@@ -143,11 +144,11 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion     
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              
-                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +" "+ value.apellido +"</option>");
                 })
       });
       //llenado de la tabla con los equipos de area
@@ -164,7 +165,7 @@
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
-              "<td>"+ value.nombre +"</td>"+
+              "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
               "<td>"+ value.mac +"</td>"+
               "<td>"+ value.numero_activo +"</td>"+
               "<td>"+ value.modelo +"</td>"+
@@ -173,6 +174,8 @@
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
               "</div>"+ 
               "</td>"+
               "</tr></tbody>"
@@ -191,11 +194,11 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion     
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              
-                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +" "+ value.apellido +"</option>");
                 })
       });
       //cargando la tabla con los equipos de sub area
@@ -212,7 +215,7 @@
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
-              "<td>"+ value.nombre +"</td>"+
+              "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
               "<td>"+ value.mac +"</td>"+
               "<td>"+ value.numero_activo +"</td>"+
               "<td>"+ value.modelo +"</td>"+
@@ -221,6 +224,8 @@
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
                 "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
               "</div>"+ 
               "</td>"+
               "</tr></tbody>"
@@ -248,7 +253,7 @@
               +"</tr></thead>");
             $.each(data, function (index, value) {           
                 $("#equipounidads-table").append("<tbody><tr>"+
-                "<td>"+ value.nombre +"</td>"+
+                "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
                 "<td>"+ value.mac +"</td>"+
                 "<td>"+ value.numero_activo +"</td>"+
                 "<td>"+ value.modelo +"</td>"+
@@ -257,6 +262,8 @@
                   "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
                   "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
                   "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
                 "</div>"+ 
                 "</td>"+
                 "</tr></tbody>");
@@ -264,6 +271,11 @@
       });
     });
   });
+</script>
+<script>
+  $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
 </script>
 @endsection
 

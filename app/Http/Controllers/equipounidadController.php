@@ -10,10 +10,11 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\Unidad;
-use App\Models\E_informatico;
 use App\Models\Area;
 use App\Models\Sub_Area;
 use App\Models\Usuario;
+use App\Models\E_informatico;
+use App\Models\Historiale;
 use PDF;
 
 
@@ -83,7 +84,8 @@ class EquipounidadController extends AppBaseController
         $equipounidads = $this->equipounidadRepository->all();
         $equipou = E_informatico::where('unidad_id','!=',null)->get();
         $unidad = Unidad::all();
-        
+        //$ver = E_informatico::find(1);
+        //dd($ver->usuario['nombre']);
         
         return view('equipounidads.index')
             ->with('equipou', $equipou)
@@ -128,7 +130,6 @@ class EquipounidadController extends AppBaseController
     public function show($id)
     {
         $equipounidad = $this->equipounidadRepository->find($id);
-
         if (empty($equipounidad)) {
             Flash::error('Equipounidad not found');
 
@@ -203,8 +204,18 @@ class EquipounidadController extends AppBaseController
 
             return redirect(route('equipounidads.index'));
         }
-
+        
+        
+       
         $equipounidad = $this->equipounidadRepository->update($request->all(), $id);
+        //actualisacion de la pertenencia del equipo
+        $his_eq = new Historiale();
+        $his_eq->usuario_id = $equipounidad->usuario_id;
+        $his_eq->e_informatico_id = $equipounidad->id;
+        $his_eq->unidad_id = $equipounidad->unidad_id;
+        $his_eq->area_id = $equipounidad->area_id;
+        $his_eq->sub_area_id = $equipounidad->sub_area_id;
+        $his_eq->save();
 
         Flash::success('Equipo Reasignado Exitosamente.');
 
@@ -213,6 +224,8 @@ class EquipounidadController extends AppBaseController
 
     public function updatee(Request $request)
     {
+        $equipou = E_informatico::where('unidad_id','=',null)->get();
+        $unidad = Unidad::all(); 
         $equipounidad = $this->equipounidadRepository->find($request->id);
         
         if (empty($equipounidad)) {
@@ -225,7 +238,9 @@ class EquipounidadController extends AppBaseController
 
         Flash::success('Equipo Asignado Correctamente.');
 
-        return redirect(route('eInformaticos.index'));
+        return redirect(route('equipounidads.equipoinsert'));
+
+        
     }
 
     /**
@@ -290,7 +305,7 @@ class EquipounidadController extends AppBaseController
                             ($request->usuario_id)!=null)
                             {
                                 $equipos = E_informatico::where('usuario_id', $request->usuario_id)->get();
-                                                               
+                                                         
                                 $pdf = PDF::loadView('pdf_equipos.pdf3', compact('equipos','area','unidad','usuario'))->setPaper(array(0, 0, 612, 792), 'portrait');
                                 return $pdf->stream();
                             }

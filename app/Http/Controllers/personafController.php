@@ -105,14 +105,14 @@ class personafController extends AppBaseController
      */
     public function store(CreatepersonafRequest $request)
     {
-        $input = $request->all();
-        
+        $input = $request->all();    
 
         $personaf = Personaf::create($input);
 
-        Flash::success('Personaf saved successfully.');
+        Flash::success('Personal guardado con éxito.');
 
         return redirect(route('personafs.index'));
+        
     }
 
     /**
@@ -206,7 +206,7 @@ class personafController extends AppBaseController
 
         Flash::success('Personaf updated successfully.');
 
-        return redirect(route('personafs.index'));
+        return redirect(route('person.crea'));
     }
     public function updatee(Request $request)
     {
@@ -222,7 +222,7 @@ class personafController extends AppBaseController
 
         Flash::success('Personaf updated successfully.');
 
-        return redirect(route('personafs.index'));
+        return redirect(route('person.crea'));
     }
 
     /**

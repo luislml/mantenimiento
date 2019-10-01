@@ -19,7 +19,6 @@ class CreateCitesTable extends Migration
             $table->integer('mantenimiento_id')->unsigned()->nullable();
             $table->integer('cite')->unsigned()->nullable();
             $table->foreign('mantenimiento_id')->references('id')->on('mantenimientos');
-
             $table->timestamps();
             $table->softDeletes();
         });

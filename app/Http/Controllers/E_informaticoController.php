@@ -14,10 +14,34 @@ use App\Models\Equipo;
 use App\Models\Modelo;
 use App\Models\Marca;
 use App\Models\E_informatico;
+use App\Models\Unidad;
+use App\Models\Area;
+use App\Models\Sub_Area;
+use App\Models\Usuario;
 
 
 class E_informaticoController extends AppBaseController
 {
+    public function getareas($id)
+    {
+        return Area::where('unidad_id', $id)->get();
+    }
+    public function getsubareas($id)
+    {
+        return Sub_Area::where('area_id', $id)->get();
+    }
+    public function getusuarios($id)
+    {
+        return Usuario::where('unidad_id', $id)->get();
+    }
+    public function getusuariosa($id)
+    {
+        return Usuario::where('area_id', $id)->get();
+    }
+    public function getusuariossa($id)
+    {
+        return Usuario::where('sub_area_id', $id)->get();
+    } 
 
   
     /** @var  E_informaticoRepository */
@@ -59,10 +83,12 @@ class E_informaticoController extends AppBaseController
         $equipos = Equipo::all();
         $modelos = Modelo::all();
         $marcas = Marca::all();
+        $unidad = Unidad::all();
         return view('e_informaticos.create')
         ->with('equipos', $equipos)
         ->with('modelos', $modelos)
-        ->with('marcas', $marcas);
+        ->with('marcas', $marcas)
+        ->with('unidad', $unidad);
     }
 
     /**
@@ -75,10 +101,10 @@ class E_informaticoController extends AppBaseController
     public function store(CreateE_informaticoRequest $request)
     {
         $input = $request->all();
-        
+        dd($input);
         $eInformatico = $this->eInformaticoRepository->create($input);
 
-        Flash::success('Equipo Informatico Guardado exitosamente.');
+        Flash::success('EQUIPO INFORMATICO GUARDADO CORRECTAMENTE.');
 
         return redirect(route('eInformaticos.index'));
     }
@@ -93,7 +119,7 @@ class E_informaticoController extends AppBaseController
     public function show($id)
     {
         $eInformatico = $this->eInformaticoRepository->find($id);
-
+        //dd($eInformatico->historial);
         if (empty($eInformatico)) {
             Flash::error('Equipo Informatico no encontrado');
 

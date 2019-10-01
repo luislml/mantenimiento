@@ -30,7 +30,9 @@ class Cite extends Model
         'gestion_id',
         'gestion',
         'mantenimiento_id',
-        'cite'
+        'cite',
+        'recommendation',
+        'observacion'
     ];
 
     /**

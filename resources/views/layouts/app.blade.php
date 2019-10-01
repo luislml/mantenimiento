@@ -179,6 +179,8 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
     <script src="cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"></script>
 
+    
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     @yield('scripts')
 </body>
 </html> 

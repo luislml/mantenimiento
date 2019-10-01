@@ -105,33 +105,29 @@ class MantenimientoController extends AppBaseController
     public function store(CreateMantenimientoRequest $request)
     {
         $input = $request->all();
-
         
-        
-
         $mantenimiento = $this->mantenimientoRepository->create($input);
-
-        //cites
-        $gestion = Gestion::find(1);
-
-        $cite = new Cite;
-        $cite->gestion_id=$gestion->gestion;
-        $cite->mantenimiento_id=$mantenimiento->id;
-        $cite->save();
-        $cites = cite::find($cite->id-1);
+            if(!empty($input['cite'])){
+                //cites
+                $gestion = Gestion::find(1);
+                $cite = new Cite;
+                $cite->gestion_id=$gestion->gestion;
+                $cite->mantenimiento_id=$mantenimiento->id;
+                $cite->save();
+                $cites = cite::find($cite->id-1);   
+            if ($cites->cite == null) 
+            {
+                $cite->cite=1;
+                $cite->save();
+            }
+            else
+            {      
+                $dato=$cites->cite;
+                $cite->cite=$dato+1;
+                $cite->save();
+            }
+        }
         
-        if ($cites->cite == null) 
-        {
-            $cite->cite=1;
-            $cite->save();
-        }
-        else
-        {
-            
-            $dato=$cites->cite;
-            $cite->cite=$dato+1;
-            $cite->save();
-        }
         
         
 

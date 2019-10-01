@@ -14,8 +14,7 @@ class CreateMantenimientosTable extends Migration
     public function up()
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
-            $table->increments('id');
-            
+            $table->increments('id');     
             $table->date('fecha');
             $table->string('descripcion');
             $table->integer('e_informatico_id')->unsigned();

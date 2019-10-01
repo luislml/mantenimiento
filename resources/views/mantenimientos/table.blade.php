@@ -2,25 +2,23 @@
     <table class="table table-striped table-bordered" style="width:100%" id="mantenimientos-table">
         <thead>
             <tr>
-                
-                <th>Fecha</th>
-                <th>Descripcion</th>
-                <th>Funcionario</th>
-                <th>Unidad</th>
-
-                <th>Action</th>
+                <th>ID</th> 
+                <th>FECHA</th>
+                <th>FUNCIONARIO</th>
+                <th>UNIDAD</th>
+                <th>DESCRIPCION</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
         @foreach($mantenimientos as $mantenimiento)
             <tr>
-                
+                <td>{!! $mantenimiento->id !!}</td>
                 <td>{!! $mantenimiento->fecha->todateString() !!}</td>
-                <td>{!! $mantenimiento->descripcion !!}</td>
                 <td>{!! $mantenimiento->equipos->usuario->nombre !!}
                     {!! $mantenimiento->equipos->usuario->apellido !!}</td>
                 <td>{!! $mantenimiento->equipos->unidad->nombre !!}</td>
-            
+                <td><?php echo nl2br($mantenimiento->descripcion); ?></td>
                 <td>
                     {!! Form::open(['route' => ['mantenimientos.destroy', $mantenimiento->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -34,14 +32,13 @@
         @endforeach
         </tbody>
         <tfoot>
-            <tr>
-                
-                <th>Fecha</th>
-                <th>Descripcion</th>
-                <th>Funcionario</th>
-                <th>Unidad</th>
-
-                <th>Action</th>
+            <tr> 
+                <th>ID</th>
+                <th>FECHA</th>
+                <th>FUNCIONARIO</th>
+                <th>UNIDAD</th>
+                <th>DESCRIPCION</th>
+                <th>ACCION</th>
             </tr>
         </tfoot>
     </table>

@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+Route::get('/register', function () {
+    return view('auth.register');
 });
 
 
@@ -28,7 +31,14 @@ Route::resource('eInformaticos', 'E_informaticoController');
 route::post('eInformaticos/equipos', ['as'=>'eInformaticos.equipo', 'uses'=>'E_informaticoController@equipo']);
 route::post('eInformaticos/modelos', ['as'=>'eInformaticos.modelo', 'uses'=>'E_informaticoController@modelo']);
 route::post('eInformaticos/marcas', ['as'=>'eInformaticos.marca', 'uses'=>'E_informaticoController@marca']);
+Route::Get('eInformaticos/getareas/{id}', 'E_informaticoController@getareas');
+Route::Get('eInformaticos/getsubareas/{id}', 'E_informaticoController@getsubareas');
+Route::Get('eInformaticos/getusuarios/{id}', 'E_informaticoController@getusuarios');
+Route::Get('eInformaticos/getusuariosa/{id}', 'E_informaticoController@getusuariosa');
+Route::Get('eInformaticos/getusuariossa/{id}', 'E_informaticoController@getusuariossa');
 
+
+//unidades
 Route::resource('unidads', 'UnidadController');
 
 
@@ -41,7 +51,7 @@ route::get('areas/create/{id?}', ['as'=>'areas.createe', 'uses'=>'AreaController
 
 Route::resource('subAreas', 'Sub_AreaController');
 route::get('subAreass/{id?}', ['as'=>'subAreass.indexx', 'uses'=>'Sub_AreaController@indexx']);
-route::get('subAreas/create/{id?}', ['as'=>'subAreas.createe', 'uses'=>'Sub_AreaController@create']);
+route::get('subAreas/create/{id?}', ['as'=>'subAreas.createe', 'uses'=>'Sub_AreaController@create']); 
 
 
 
@@ -63,7 +73,7 @@ route::get('personafs/{personaf}/editestado', ['as'=>'personafs.editestado', 'us
 
 
 Route::resource('equipounidads', 'EquipounidadController');
-route::get('equipounidadsinsert', ['as'=>'equipounidads.equipoinsert', 'uses'=>'EquipounidadController@editt']);
+route::get('equipounidadsinsert', ['as'=>'equipounidads.equipoinsert', 'uses'=>'EquipounidadController@editt']); 
 route::post('equipounidadsupdate', ['as'=>'equipounidads.equipoupdate', 'uses'=>'EquipounidadController@updatee']);
 Route::Get('getareas/{id}', 'EquipounidadController@getareas');
 Route::Get('getsubareas/{id}', 'EquipounidadController@getsubareas');

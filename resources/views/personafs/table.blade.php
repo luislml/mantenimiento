@@ -2,12 +2,12 @@
     <table id="personafs-table" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Unidad</th>
-                <th>Area</th>
-                <th>Subarea</th>
-                <th>Estado</th>
-                <th>Action</th>
+                <th>NOMBRE</th>
+                <th>UNIDAD</th>
+                <th>AREA</th>
+                <th>SUB AREA</th>
+                <th>ESTADO</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
@@ -46,12 +46,12 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Nombre</th>
-                <th>Unidad</th>
-                <th>Area</th>
-                <th>Subarea</th>
-                <th>Estado</th>
-                <th>Action</th>
+                <th>NOMBRE</th>
+                <th>UNIDAD</th>
+                <th>AREA</th>
+                <th>SUB AREA</th>
+                <th>ESTADO</th>
+                <th>ACCION</th>
             </tr>
         </tfoot>
     </table>

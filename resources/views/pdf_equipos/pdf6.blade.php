@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Invoice</title>
+    <title>LISTA DE EQUIPOS </title>
     <div class="row">
           <div class="col-xs-12">
-            <h2 class="page-header">
+            <h3 class="page-header">
                LISTA DE EQUIPOS
-            </h2>
-            <h3>
+            </h3>
+            <h4>
               UNIDAD:
                {{ $unidad->nombre }} 
-            </h3>
+            </h4>
           </div>
         </div>
   <style>
@@ -40,25 +40,28 @@
     <table width="100%">
            <thead> 
             <tr>      
-                <th width="10%">Equipo</th>
-                <th width="43%">Numero de Activo</th>
-                <th width="25%">Marca</th>
-                <th width="22%">Modelo</th>
+                <th>Equipo</th> 
+                <th>QR</th>
             </tr>
         </thead>
         <tbody>
         @foreach($equipos as $equipo)
             <tr>
-                <td width="10%">{!! $equipo->nombre !!}</td>
-                <td width="43%">{!! $equipo->numero_activo !!}</td>
-                <td width="25%">{!! $equipo->marca !!}</td>
-                <td width="22%">{!! $equipo->modelo!!}</td>
+                <td>EQUIPO :{!! $equipo->nombre !!} <br>
+                    NUMERO DE ACTIVO: {!! $equipo->numero_activo !!} <br>
+                    MARCA: {!! $equipo->marca !!}<br>
+                    MODELO: {!! $equipo->modelo!!}
+                </td>
+              <input type="hidden" {{ $nombre = $equipo->usuario->nombre }}>
+              <input type="hidden" {{ $apellido = $equipo->usuario->apellido }}>
+              <input type="hidden" {{ $unidad = $equipo->unidad['nombre'] }}>
+                <td>
+                  <img src="data:image/png;base64, {!!base64_encode(QrCode::format('png')->size(200)->margin(1)->generate("NOMBRE:$nombre $apellido | EQUIPO:$equipo->nombre | MARCA:$equipo->marca | MODELO:$equipo->modelo | UNIDAD:$unidad"))!!}">
+                  
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-  </body>
-    <footer class="main-footer" style="max-height: 100px;text-align: center">
-        <strong>Copyright © 2019 <a href="#">S.E.D.E.S.</a></strong> Todos los derechos reservados.
-    </footer>
+  </body>  
 </html>

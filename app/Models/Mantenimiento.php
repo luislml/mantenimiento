@@ -49,7 +49,10 @@ class Mantenimiento extends Model
      * @var array
      */
     public static $rules = [
-        
+        'fecha' => 'required',
+        'e_informatico_id' => 'required',
+        'usuario_id' => 'required',
+        'descripcion' => 'required'
     ];
 
    public function equipos()

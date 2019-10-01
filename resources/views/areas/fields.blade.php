@@ -1,13 +1,13 @@
 <!-- Unidad Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('unidad_id', 'Unidad Id:') !!}
-    {!! Form::text('unidad_id', null, ['class' => 'form-control']) !!}
+    
+    {!! Form::hidden('unidad_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nombre Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nombre', 'Nombre:') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+    {!! Form::label('area', 'AREA:') !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control', 'onkeydown'=>'upperCaseF(this)']) !!}
 </div>
 
 <!-- Submit Field -->

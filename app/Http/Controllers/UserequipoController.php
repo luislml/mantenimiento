@@ -14,6 +14,7 @@ use App\Models\Area;
 use App\Models\Sub_Area;
 use App\Models\Usuario;
 use App\Models\E_informatico;
+use App\Models\Historiale; 
 use PDF;
 
 class UserequipoController extends AppBaseController
@@ -114,10 +115,20 @@ class UserequipoController extends AppBaseController
         $id = $request->id;
         $userequipo = E_informatico::find($id);
         
-        $userequipo = $this->userequipoRepository->update($request->all(), $id);
-        Flash::success('Equipo Reasignado Correctamente.');
+        // priemra insercion al historial del equipo
 
-        return redirect(route('userequipos.index'));
+        $his_eq = new Historiale();
+        $his_eq->usuario_id = $input['usuario_id'];
+        $his_eq->e_informatico_id = $input['id'];
+        $his_eq->unidad_id = $userequipo->unidad_id;
+        $his_eq->area_id = $userequipo->area_id;
+        $his_eq->sub_area_id = $userequipo->sub_area_id;
+        $his_eq->save();
+        
+        $userequipo = $this->userequipoRepository->update($request->all(), $id);
+        Flash::success('EEQUIPO ASIGNADO CORRECTAMENTE..');
+
+        return redirect(route('userequipos.create'));
     }
 
     /**

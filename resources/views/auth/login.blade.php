@@ -35,18 +35,20 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>Mantenimiento</b></a>
+        <a>
+            <b>Mantenimiento</b>
+        </a>
     </div>
 
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Iniciar Sesion</p>
+        <p class="login-box-msg">INICIAR SESION</p>
 
         <form method="post" action="{{ url('/login') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('ci') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="Ej. 10539845 o 1053658L">
+                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="CEDULA DE IDENTIDAD (C.I.)">
                 <span class="fa fa-newspaper-o form-control-feedback"></span>
                 @if ($errors->has('ci'))
                     <span class="help-block">
@@ -56,7 +58,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                <input type="password" class="form-control" placeholder="CONTRASEÑA" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -72,9 +74,14 @@
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+                <div class="form-control">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">INICIAR SESION</button>
+                    
+                </div><br>
+                <div class="form-control">
+                    <a href="{!! route('register') !!}" class="btn btn-primary btn-block btn-flat">REGISTRARSE</a>
                 </div>
+                
                 <!-- /.col -->
             </div>
         </form>

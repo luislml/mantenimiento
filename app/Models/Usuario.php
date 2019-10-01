@@ -32,7 +32,10 @@ class Usuario extends Model
         'ci',
         'telefono',
         'rol',
-        'estado'
+        'estado',
+        'unidad_id',
+        'area_id',
+        'sub_area_id'
     ];
 
     /**
@@ -56,10 +59,11 @@ class Usuario extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required|string|regex:/^[A-Z][a-z, ,A-z]+$/',
-        'apellido' => 'required|string|regex:/^[A-Z][a-z, ,A-z]+$/',
-        'ci' => 'required|string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
-        'telefono' => 'string|max:9|min:8'
+        'nombre' => 'required|string|regex:/^[A-Z, ]+$/',
+        'apellido' => 'required|string|regex:/^[A-Z, ]/',
+        'ci' => 'string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
+       
+        
     ];
 
 

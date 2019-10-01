@@ -28,11 +28,19 @@ class E_informatico extends Model
 
     public $fillable = [
         'nombre',
-        'mac',
+        'mac_ethernet',
+        'mac_inalambrico',
         'numero_activo',
         'modelo',
         'marca',
         'numero_serie',
+        'memoria_ram',
+        'disco_duro',
+        'tarjeta_video',
+        's_o',
+        'procesador',
+        'tipo_impresora',
+        'detalle',
         'usuario_id',
         'unidad_id',
         'area_id',
@@ -61,7 +69,7 @@ class E_informatico extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required'
+        'nombre' => ''
     ];
     
      public function unidad()
@@ -83,6 +91,10 @@ class E_informatico extends Model
     public function mantenimientos()
     {
         return $this->hasMany(Mantenimiento::class);
+    }
+    public function historial()
+    {
+        return $this->Hasmany(Historiale::class);
     }
 
     

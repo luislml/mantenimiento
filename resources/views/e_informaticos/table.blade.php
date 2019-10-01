@@ -2,24 +2,24 @@
     <table id="eInformaticos-table" class="table table-striped table-bordered" style="width:100%" >
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Mac</th>
-                <th>Numero Activo</th>
-                <th>Modelo</th>
-                <th>Marca</th>
-                <th>Numero Serie</th>
-                <th>Action</th>
+                <th>ID</th>
+                <th>EQUIPO</th>
+                <th>NUMERO DE ACTIVO</th>
+                <th>MODELO</th>
+                <th>MARCA</th>
+                <th>NUMERO DE SERIE</th>
+                <th>ACCION</th>
             </tr>
         </thead>
         <tbody>
         @foreach($eInformaticos as $eInformatico)
             <tr>
+                <td>{!! $eInformatico->id !!}</td>
                 <td>{!! $eInformatico->nombre !!}</td>
-            <td>{!! $eInformatico->mac !!}</td>
-            <td>{!! $eInformatico->numero_activo !!}</td>
-            <td>{!! $eInformatico->modelo !!}</td>
-            <td>{!! $eInformatico->marca !!}</td>
-            <td>{!! $eInformatico->numero_serie !!}</td>
+                <td>{!! $eInformatico->numero_activo !!}</td>
+                <td>{!! $eInformatico->modelo !!}</td>
+                <td>{!! $eInformatico->marca !!}</td>
+                <td>{!! $eInformatico->numero_serie !!}</td>
                 <td>
                     {!! Form::open(['route' => ['eInformaticos.destroy', $eInformatico->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -36,12 +36,13 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Nombre</th>
-                <th>Mac</th>
-                <th>Numero Activo</th>
-                <th>Modelo</th>
-                <th>Numero Serie</th>
-                <th>Action</th>
+                <th>ID</th>
+                <th>EQUIPO</th>
+                <th>NUMERO DE ACTIVO</th>
+                <th>MODELO</th>
+                <th>MARCA</th>
+                <th>NUMERO DE SERIE</th>
+                <th>ACCION</th>
             </tr>
         </tfoot>
     </table>

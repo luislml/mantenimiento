@@ -5,7 +5,7 @@
     th { background-color: #DCDCDC; }
     @page { margin: 100px 50px; }
     header { position: fixed; top: -100px; left: 0px; right: 0px; height: 50px; }
-    footer { padding-top: -250px; position: fixed; bottom: -100px; left: 0px; right: 0px; height: 50px; }
+    footer { padding-top: -250px; position: fixed; bottom: -50px; left: 0px; right: 0px; height: 50px; }
     /*p { page-break-after: always; }
     p:last-child { page-break-after: never; }*/
     body {  padding-top: 50px; padding-bottom: -30px;}
@@ -35,26 +35,25 @@
         <h5> EQUIPO: {{ $cite->mantenimiento['equipos']['nombre'] }} </h5> <br>
         <h5> TRABAJO REALIZADO: {{ $cite->mantenimiento['descripcion'] }} </h5>
         <h5> OBSERVACIONES: </h5>
-        <ul>
-        @foreach($cite->observacion as $observaciones)
-                <li>{{ $observaciones->observacion }}</li>
-        @endforeach
-        </ul>
+        <h5><?php echo nl2br($cite->observacion); ?> </h5>
+        
         <h5> RECOMENDACIONES: </h5>
-        <ul>
-        @foreach($cite->recomendacion as $recomendaciones)
-                <li>{{ $recomendaciones->recomendacion }}</li>
-        @endforeach
-        </ul>
+        <h5> <?php echo nl2br($cite->recommendation); ?> </h5>
+        
+        
+
+        
+        
         <p>En cuanto se informa para fines del interesado</p>
         <p align="right">FECHA: {{ $cite->mantenimiento['fecha']->toFormattedDateString() }}</p>
         
 
 
   </div>
-  <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>TECNICO AREA DE INFORMATICA Y TELECOMUNICACIONES</strong> <br><strong>SEDES POTOSI</strong>
-        </footer>
+<footer class="main-footer" style="max-height: 100px;text-align: center">
+    <strong align="center">ING: {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</strong><br>
+    <strong>TECNICO AREA DE INFORMATICA Y TELECOMUNICACIONES</strong> <br><strong>SEDES POTOSI</strong>
+</footer>
 
   
     

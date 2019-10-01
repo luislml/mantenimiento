@@ -32,20 +32,27 @@
     <![endif]-->
 </head>
 <body class="hold-transition register-page">
+    <script>
+      function upperCaseF(a){
+        setTimeout(function(){
+            a.value = a.value.toUpperCase();
+            }, 1);
+        }
+    </script>
 <div class="register-box">
     <div class="register-logo">
         <a href="{{ url('/home') }}"><b>Mantenimiento</b></a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Registrarse</p>
+        <p class="login-box-msg">REGISTRARSE</p>
 
         <form method="post" action="{{ url('/register') }}">
 
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback{{ $errors->has('nombre') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" placeholder="Ej. Juan">
+                <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" placeholder="NOMBRE" onkeydown="upperCaseF(this)">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('nombre'))
@@ -58,7 +65,7 @@
             
 
             <div class="form-group has-feedback{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" placeholder="Ej. Perez">
+                <input type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" placeholder="APELLIDO" onkeydown="upperCaseF(this)">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('apellido'))
@@ -69,7 +76,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('ci') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="Ej. 10539845 o 1053658L">
+                <input type="text" class="form-control" name="ci" value="{{ old('ci') }}" placeholder="CEDULA DE IDENTIDAD (C.I.)">
                 <span class="fa fa-newspaper-o form-control-feedback"></span>
 
                 @if ($errors->has('ci'))
@@ -80,7 +87,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" placeholder="Ej. 78639578">
+                <input type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" placeholder="TELEFONO O CELL">
                 <span class="fa fa-phone form-control-feedback"></span>
 
                 @if ($errors->has('telefono'))
@@ -93,7 +100,7 @@
             <input class="form-control" name="estado" type="hidden" value="activo">
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                <input type="password" class="form-control" name="password" placeholder="CONTRASEÑA">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password'))
@@ -103,25 +110,16 @@
                 @endif
             </div>
 
-            <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <input type="password" name="Confirmar Contraseña" class="form-control" placeholder="Confirmar password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                
-
-                @if ($errors->has('password_confirmation'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                    </span>
-                @endif
-            </div>
+            
 
             
 
             <div class="row">
                 
                 <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                <div class="form-control">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">REGISTRARSE</button>
+                    
                 </div>
                 <!-- /.col -->
             </div>

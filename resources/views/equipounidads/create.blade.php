@@ -4,9 +4,10 @@
     
 <section class="content-header">
         <h1>
-            Asignar Usuario a : Unidad , Area , Sub Area
+            ASIGNAR USUARIO A : UNIDAD , AREA , SUB AREA
         </h1>
     </section>
+    @include('flash::message')
     <div class="content">
         @include('adminlte-templates::common.errors')
         <div class="box box-primary">
@@ -16,44 +17,44 @@
                     {!! Form::open(['route' => 'equipounidads.equipoupdate']) !!}
 
 <div class="form-group col-sm-12">
-    {!! Form::label('nombre', 'Nombre:') !!}
+    {!! Form::label('nombre', 'SELECCIONE EQUIPO:') !!}
     <select name="id" class="form-control">
-            <option value="">-- Seleccione Equipo --</option>
+            <option value="">-- SELECCIONE EQUIPO --</option>
         @foreach($equipou as $equipos)
             
-            <option value="{{ $equipos->id }}">Nombre: {!! $equipos->nombre !!} Mac: {!! $equipos->mac !!} Numero de activo: {!! $equipos->numero_activo !!}</option>
+            <option value="{{ $equipos->id }}">{!! $equipos->nombre !!} | MARCA: {!! $equipos->marca !!} | MODELO: {!! $equipos->modelo !!} | NUMERO DE ACTIVO: {!! $equipos->numero_activo !!}</option>
         @endforeach
     </select>
 </div>
 
-                            <div class="col-md-3">
-   <label for="" class="control-label">Seleccione Unidad</label>
+<div class="col-md-4">
+   <label for="" class="control-label">SELECCIONE UNIDAD:</label>
       <select name="unidad_id" id="unidad" class="form-control">
-         <option value="">Seleccione</option>
+         <option value="">-- SELECCIONE UNIDAD --</option>
          @foreach ($unidad as $unidads)
             <option value="{{$unidads->id}}">{{$unidads->nombre}}</option>
          @endforeach
       </select>
 </div>
                             
-<div class="col-md-3">
-   <label for="" class="control-label">Seleccione Area</label>
+<div class="col-md-4">
+   <label for="" class="control-label">SELECCIONE AREA:</label>
       <select name="area_id" id="area" class="form-control">
-           <option value="">Seleccione area</option>
+           <option value="">-- SELECCIONE AREA --</option>
        </select>
 </div>
 
 
-<div class="col-md-3">
-   <label for="" class="control-label">Seleccione Sub Area</label>
+<div class="col-md-4">
+   <label for="" class="control-label">SELECCIONE SUB AREA:</label>
       <select name="sub_area_id" id="subarea" class="form-control">
-           <option value="">Seleccione sub area</option>
+           <option value="">-- SELECCIONE SUB AREA --</option>
        </select>
 </div>
 
                             <div class="form-group col-sm-12">
-                                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                                <a href="{!! route('usuarios.index') !!}" class="btn btn-default">Cancel</a>
+                                {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
+                                <a href="{!! route('usuarios.index') !!}" class="btn btn-default">CANCELAR</a>
                             </div>
 
                     {!! Form::close() !!}
@@ -63,12 +64,6 @@
     </div>
 
 
-
-
-
-
-
-    
 @endsection
 
 
@@ -85,7 +80,7 @@
         
         console.log(data);
           $('#area').empty();
-                $('#area').append("<option value=''>Selecciona Area</option>");
+                $('#area').append("<option value=''>-- SELECCIONE AREA --</option>");
 
             $.each(data, function (index, value) {
              
@@ -107,7 +102,7 @@
         
         console.log(data);
           $('#subarea').empty();
-                $('#subarea').append("<option value=''>Selecciona Sub Area</option>");
+                $('#subarea').append("<option value=''>-- SELECCIONE SUB AREA --</option>");
 
             $.each(data, function (index, value) {
              

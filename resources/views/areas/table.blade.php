@@ -2,8 +2,8 @@
     <table class="table" id="areas-table">
         <thead>
             <tr>
-        <th>Nombre</th>
-                <th colspan="3">Action</th>
+        <th>AREAS</th>
+                <th colspan="3">ACCION</th>
             </tr>
         </thead>
         <tbody>

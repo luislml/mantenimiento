@@ -26,11 +26,15 @@ class personaf extends Model
 
 
     public $fillable = [
-        'user_id',
+        'nombre',
+        'apellido',
+        'ci',
+        'telefono',
+        'rol',
+        'estado',
         'unidad_id',
         'area_id',
-        'sub_area_id',
-        'estado'
+        'sub_area_id'
     ];
 
     /**
@@ -52,7 +56,10 @@ class personaf extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'unique:Personals'
+        'nombre' => 'required|string|regex:/^[A-Z, ]+$/',
+        'apellido' => 'required|string|regex:/^[A-Z, ]/',
+        'ci' => 'string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
+        'unidad_id' => 'required'
     ];
 
     

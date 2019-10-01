@@ -49,12 +49,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => 'required|string|regex:/^[a-z, ]+$/',
-            'apellido' => 'required|string|regex:/^[a-z, ]+$/',
+            'nombre' => 'required|string|regex:/^[A-Z, ]+$/',
+            'apellido' => 'required|string|regex:/^[A-Z, ]+$/',
             'ci' => 'required|string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
             'telefono' => 'required|numeric',
             'estado' => 'required',
-            'password' => 'required|string|min:3|confirmed', 
+            'password' => 'required|string|min:6', 
         ]);
     }
 

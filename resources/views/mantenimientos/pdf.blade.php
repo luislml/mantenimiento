@@ -34,7 +34,7 @@
         @foreach($mantenimientos as $mantenimiento)
             <tr>
                 <td width="10%">{!! $mantenimiento->fecha->todateString() !!}</td>
-                <td width="43%" align="">{!! $mantenimiento->descripcion !!}</td>
+                <td width="43%" align=""><?php echo nl2br($mantenimiento->descripcion); ?></td>
                 <td width="25%">{!! $mantenimiento->equipos->usuario->nombre !!}
                     {!! $mantenimiento->equipos->usuario->apellido !!}</td>
                 <td width="22%">{!! $mantenimiento->equipos->unidad->nombre !!}</td>
