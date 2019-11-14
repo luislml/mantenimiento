@@ -1,3 +1,4 @@
+
 <div class="table-responsive">
     <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -22,13 +23,20 @@
                 <td>
                     {!! Form::open(['route' => ['usuarios.destroy', $usuario->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('usuarios.show', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <!-- 
+                        <a href="{!! route('usuarios.show', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i>VER</a>
+                         -->
 
-                        <a href="{!! route('usuarios.edit', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{!! route('usuarios.edit', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ROL O EDITAR</a>
+                        <a href="{!! route('personafs.edit', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ASIGNAR UNIDAD</a>
 
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro/a?')"]) !!}
-                    </div>
+                        
+                    
+                    
                     {!! Form::close() !!}
+
+                   
                 </td>
                 @endif
                 
@@ -48,6 +56,9 @@
         </tfoot>
     </table>
 </div>
+ 
+ 
+
 @section('scripts')
     <script>
         $(document).ready(function() {

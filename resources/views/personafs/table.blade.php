@@ -35,8 +35,8 @@
                     {!! Form::open(['route' => ['personafs.destroy', $personaf->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         
-                        <a href="{!! route('personafs.edit', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>editar</a>
-                        <a href="{!! route('personafs.editestado', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>editarestado</a>
+                        <a href="{!! route('personafs.edit', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR AREA DE TRABAJO</a>
+                        <a href="{!! route('personafs.editestado', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR ESTADO</a>
                         
                     </div>
                     {!! Form::close() !!}

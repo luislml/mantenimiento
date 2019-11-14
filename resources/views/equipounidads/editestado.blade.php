@@ -5,10 +5,10 @@
 
     <section class="content-header">
         <h1>
-            Usuario: {{ $equipou->nombre }}   
+            EQUIPO: {{ $equipou->nombre }}   
         </h1>
         <h1>
-            Estado actual: {{ $equipou->estado }}
+            ESTADO ACTUAL: {{ $equipou->estado }}
         </h1>
         
    </section>

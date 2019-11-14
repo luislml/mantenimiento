@@ -100,7 +100,8 @@ Route::Get('userequipos/getequiposa/{id}', 'UserequipoController@getequiposa');
 Route::Get('userequipos/getusuariossa/{id}', 'UserequipoController@getusuariossa');
 Route::Get('userequipos/getequipossa/{id}', 'UserequipoController@getequipossa');
 Route::Get('userequipos/getusuariose/{id}', 'UserequipoController@getusuariose');
-Route::Get('/imprimirr', 'UserequipoController@imprimir')->name('qr');
+//Route::Get('/imprimirrr', 'UserequipoController@imprimir')->name('qr');
+Route::Get('userequipos/hmantenimiento/{id}', 'UserequipoController@hmantenimiento');
 
 
 
@@ -155,3 +156,12 @@ Route::resource('modelos', 'ModeloController');
 Route::resource('marcas', 'MarcaController');
 
 Route::resource('historiales', 'HistorialeController');
+
+
+Route::resource('cronogramas', 'CalendarController');
+//rutA fullcalendar
+
+Route::get('cargaEventos{id?}','CalendarController@index1');
+Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
+Route::post('actualizaEventos','CalendarController@update');
+Route::post('eliminaEvento','CalendarController@delete');

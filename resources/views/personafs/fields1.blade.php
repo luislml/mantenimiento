@@ -1,8 +1,8 @@
 
                             <div class="col-md-3">
-   <label for="" class="control-label">Seleccione nueva unidad</label>
+   <label for="" class="control-label">SELECCIONE UNIDAD:</label>
       <select name="unidad_id" id="unidad" class="form-control">
-         <option value="">Seleccione</option>
+         <option value="">--SELECCIONE UNIDAD--</option>
          @foreach ($unidad as $unidads)
             <option value="{{$unidads->id}}">{{$unidads->nombre}}</option>
          @endforeach
@@ -11,20 +11,20 @@
                             
 <div class="col-md-3">
   
-        <label for="" class="control-label">Seleccione nueva area</label>
+        <label for="" class="control-label">SELECCIONE AREA:</label>
     
       <select name="area_id" id="area" class="form-control">
-           <option value="">Seleccione area</option>
+           <option value="">--SELECCIONE AREA--</option>
        </select>
 </div>
 
 
 <div class="col-md-3">
   
-    <label for="" class="control-label">Seleccione nueva sub area</label>
+    <label for="" class="control-label">SELECCIONE SUB AREA:</label>
     
       <select name="sub_area_id" id="subarea" class="form-control">
-           <option value="">Seleccione sub area</option>
+           <option value="">--SELECCIONE SUB AREA--</option>
        </select>
 </div>
 

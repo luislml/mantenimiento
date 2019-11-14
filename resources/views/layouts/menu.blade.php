@@ -6,7 +6,7 @@
 @endif-->
 @if(auth()->user()->hasRoles(['Admin']))
     <li class="{{ Request::is('usuarios*') ? 'active' : '' }}">
-    <a href="{!! route('usuarios.index') !!}"><i class="fa fa-user "></i><span>Usuarios</span></a>
+    <a href="{!! route('usuarios.index') !!}"><i class="fa fa-user "></i><span>Control de Usuarios</span></a>
 </li>
 @endif
 
@@ -55,7 +55,7 @@
 
 @if(auth()->user()->hasRoles(['Admin','operador']))
 <li class="{{ Request::is('unidads*') ? 'active' : '' }}">
-    <a href="{!! route('unidads.index') !!}"><i class="fa fa-sitemap"></i><span>Unidades</span></a>
+    <a href="{!! route('unidads.index') !!}"><i class="fa fa-sitemap"></i><span>Areas De Trabajo</span></a>
 </li>
 @endif
 
@@ -97,6 +97,12 @@
 @if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
 <li class="{{ Request::is('herramientas*') ? 'active' : '' }}">
     <a href="{!! route('herramientas.index') !!}"><i class="fa fa-gears"></i><span>Herramientas</span></a>
+</li>
+@endif
+
+@if(auth()->user()->hasRoles(['Admin','operador']))
+<li class="{{ Request::is('cronogramas') ? 'active' : '' }}">
+    <a href="{!! route('cronogramas.index') !!}"><i class="fa fa-gears"></i><span>Cronogramas</span></a>
 </li>
 @endif
 

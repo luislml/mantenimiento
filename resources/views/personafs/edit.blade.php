@@ -5,11 +5,9 @@
 
     <section class="content-header">
         <h1>
-            Usuario: {{ $personaf->nombre }}   
+            USUARIO: {{ $personaf->nombre }} {{ $personaf->apellido }} 
         </h1>
-        <h1>
-            Unidad actual: {{ $personaf->unidad->nombre }}
-        </h1>
+        
         
    </section>
    <div class="content">

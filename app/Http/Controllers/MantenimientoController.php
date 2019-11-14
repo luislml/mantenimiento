@@ -131,7 +131,7 @@ class MantenimientoController extends AppBaseController
         
         
 
-        Flash::success('Mantenimiento saved successfully.');
+        Flash::success('MANTENIMIENTO REALIZADO CORRECTAMENTE.');
 
         return redirect(route('mantenimientos.index'));
     }

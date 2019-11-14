@@ -14,7 +14,8 @@ use App\Models\Area;
 use App\Models\Sub_Area;
 use App\Models\Usuario;
 use App\Models\E_informatico;
-use App\Models\Historiale; 
+use App\Models\Historiale;
+use App\Models\Mantenimiento; 
 use PDF;
 
 class UserequipoController extends AppBaseController
@@ -143,6 +144,7 @@ class UserequipoController extends AppBaseController
         $userequipo = $this->userequipoRepository->find($id);
         $usuario = Usuario::find($userequipo->usuario_id);
         $unidad = Unidad::find($userequipo->unidad_id);
+        
      
         if (empty($userequipo)) {
             Flash::error('Userequipo not found');
@@ -153,6 +155,22 @@ class UserequipoController extends AppBaseController
         return $pdf->stream();
 
         //return view('userequipos.show')->with('userequipo', $userequipo)->with('usuario', $usuario)->with('unidad', $unidad);
+    }
+    public function hmantenimiento($id)
+    {
+        $hmantenimiento = Mantenimiento::where('e_informatico_id', $id)->get();
+        $einfo = E_informatico::find($id);
+
+       
+     
+        if (empty($hmantenimiento)) {
+            Flash::error('Userequipo not found');
+
+            return redirect(route('userequipos.index'));
+        }
+        $pdf = PDF::loadView('userequipos.hequipo', compact('hmantenimiento','einfo'))->setPaper(array(0, 0, 612, 792), 'portraid');
+        return $pdf->stream();
+
     }
    
 

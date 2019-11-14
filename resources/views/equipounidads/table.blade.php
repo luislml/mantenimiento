@@ -105,8 +105,10 @@
                     
                     <div class='btn-group'>
                         
-                        <a href="{!! route('equipounidads.edit', [$equipouds->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>Cambiar de Unidad</a>
-                        <a href="{!! route('equipounidads.editestado', [$equipouds->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>Cambiar estado</a>
+                        <a href="{!! route('equipounidads.edit', [$equipouds->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>CAMBIO DE UNIDAD</a>
+                        <a href="{!! route('equipounidads.editestado', [$equipouds->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ESTADO</a>
+
+                        <a href="{!! route('userequipos.show', [$equipouds->id]) !!}" class='btn btn-default btn-xs' target="_blank"><i class="glyphicon glyphicon-eye-open"></i>IMPRIMIR CODIGO QR</a>
                         
                     </div>
                     {!! Form::close() !!}

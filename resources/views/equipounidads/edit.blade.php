@@ -3,10 +3,10 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Equipo: {{ $equipounidad->nombre }}   
+            EQUIPO: {{ $equipounidad->nombre }}   
         </h1>
         <h1>
-            Unidad actual: {{ $equipounidad->unidad->nombre }}
+            UNIDAD ACTUAL: {{ $equipounidad->unidad->nombre }}
         </h1>
    </section>
    <div class="content">
@@ -37,7 +37,7 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion
         console.log(data);
           $('#area').empty();
-                $('#area').append("<option value=''>Selecciona Area</option>");
+                $('#area').append("<option value=''>SELECCIONE AREA</option>");
 
             $.each(data, function (index, value) {
              
@@ -50,11 +50,11 @@
         
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              
-                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +"</option>");
+                    $('#usuario_id').append("<option value='" + value.id + "'>" + value.nombre +" "+value.apellido +"</option>");
                 })
       });
     });
@@ -71,7 +71,7 @@
         
         console.log(data);
           $('#subarea').empty();
-                $('#subarea').append("<option value=''>Selecciona Sub Area</option>");
+                $('#subarea').append("<option value=''>SELECCIONE SUB AREA</option>");
 
             $.each(data, function (index, value) {
              
@@ -84,7 +84,7 @@
         
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              
@@ -102,7 +102,7 @@
 //esta el la peticion get, la cual se divide en tres partes. ruta,variables y funcion    
         console.log(data);
           $('#usuario_id').empty();
-                $('#usuario_id').append("<option value=''>Selecciona usuario</option>");
+                $('#usuario_id').append("<option value=''>SELECCIONE USUARIO</option>");
 
             $.each(data, function (index, value) {
              

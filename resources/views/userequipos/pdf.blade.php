@@ -29,13 +29,10 @@
     <h4>Codigo QR</h4>
    
 
-        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate("
-        nombre:$usuario->nombre, 
-        apellido:$usuario->apellido, 
-        equipo:$userequipo->nombre,
-        modelo:$userequipo->modelo,
-        unidad:$unidad->nombre,
+        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate("NOMBRE:$usuario->nombre $usuario->apellido | EQUIPO:$userequipo->nombre | MARCA:$userequipo->marca | MODELO:$userequipo->modelo | UNIDAD:$unidad->nombre
         ")) !!} ">
+
+        
     </div>
   </body>
 </html>

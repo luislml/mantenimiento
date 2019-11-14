@@ -96,25 +96,25 @@
         console.log(data);
           $('#equipounidads-table').empty();
               $("#equipounidads-table").append("<thead><tr>"+
-              "<td> Equipo </td>"+
-              "<td> Mac </td>"+
-              "<td> Numero de Activo </td>"+
-              "<td> Modelo </td>"+
-              "<td> Accion </td>"+
+              "<td> EQUIPO </td>"+
+              "<td> ESTADO </td>"+
+              "<td> ACCION </td>"+
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
               "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
-              "<td>"+ value.mac +"</td>"+
-              "<td>"+ value.numero_activo +"</td>"+
-              "<td>"+ value.modelo +"</td>"+
+              "<td>"+ value.estado +"</td>"+
               "<td>"+ "<div class='btn-group'>"+
                 "<a href='equipounidads/"+ value.id +"/edit' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> CAMBIO DE UNIDAD</a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> ESTADO</a>"+
                 "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE ASIGNACION </a>"+
+                "<a target='_blank' href='userequipos/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR CODIGO QR </a>"+
+                "<a target='_blank' href='userequipos/hmantenimiento/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE MANTENIMIENTO </a>"+
               "</div>"+ 
               "</td>"+
               "</tr></tbody>" 
@@ -157,25 +157,25 @@
         console.log(data);
           $('#equipounidads-table').empty();
               $("#equipounidads-table").append("<thead><tr>"+
-              "<td> Equipo </td>"+
-              "<td> Mac </td>"+
-              "<td> Numero de Activo </td>"+
-              "<td> Modelo </td>"+
-              "<td> Accion </td>"+
+              "<td> EQUIPO </td>"+
+              "<td> ESTADO </td>"+
+              "<td> ACCION </td>"+
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
               "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
-              "<td>"+ value.mac +"</td>"+
-              "<td>"+ value.numero_activo +"</td>"+
-              "<td>"+ value.modelo +"</td>"+
+              "<td>"+ value.estado +"</td>"+
               "<td>"+ "<div class='btn-group'>"+
                 "<a href='equipounidads/"+ value.id +"/edit' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> CAMBIO DE UNIDAD</a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> ESTADO </a>"+
                 "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE ASIGNACION</a>"+
+                "<a target='_blank' href='userequipos/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR CODIGO QR </a>"+
+                "<a target='_blank' href='userequipos/hmantenimiento/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE MANTENIMIENTO </a>"+
               "</div>"+ 
               "</td>"+
               "</tr></tbody>"
@@ -207,25 +207,25 @@
         console.log(data);
           $('#equipounidads-table').empty();
               $("#equipounidads-table").append("<thead><tr>"+
-              "<td> Equipo </td>"+
-              "<td> Mac </td>"+
-              "<td> Numero de Activo </td>"+
-              "<td> Modelo </td>"+
-              "<td> Accion </td>"+
+              "<td> EQUIPO </td>"+
+              "<td> ESTADO </td>"+
+              "<td> ACCION </td>"+
               +"</tr></thead>");              
             $.each(data, function (index, value) {                    
             $("#equipounidads-table").append("<tbody><tr>"+
               "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
-              "<td>"+ value.mac +"</td>"+
-              "<td>"+ value.numero_activo +"</td>"+
-              "<td>"+ value.modelo +"</td>"+
+              "<td>"+ value.estado +"</td>"+
               "<td>"+ "<div class='btn-group'>"+
                 "<a href='equipounidads/"+ value.id +"/edit' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> CAMBIO DE UNIDAD </a>"+
                 "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> ESTADO </a>"+
                 "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> IMPRIMIR HISTORIAL DE ASIGNACION </a>"+
+                "<a target='_blank' href='userequipos/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR CODIGO QR </a>"+
+                "<a target='_blank' href='userequipos/hmantenimiento/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE MANTENIMIENTO </a>"+
               "</div>"+ 
               "</td>"+
               "</tr></tbody>"
@@ -245,25 +245,25 @@
         console.log(data);
           $('#equipounidads-table').empty();
               $("#equipounidads-table").append("<thead><tr>"+
-              "<td> Equipo </td>"+
-              "<td> Mac </td>"+
-              "<td> Numero de Activo </td>"+
-              "<td> Modelo </td>"+
-              "<td> Accion </td>"+
+              "<td> EQUIPO </td>"+
+              "<td> ESTADO </td>"+
+              "<td> ACCION </td>"+
               +"</tr></thead>");
             $.each(data, function (index, value) {           
                 $("#equipounidads-table").append("<tbody><tr>"+
-                "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+value.nombre+"</a></td>"+
-                "<td>"+ value.mac +"</td>"+
-                "<td>"+ value.numero_activo +"</td>"+
-                "<td>"+ value.modelo +"</td>"+
+                "<td><a href='' data-toggle='modal' data-target='#"+value.id+"'>"+ value.nombre +"</a></td>"+
+                "<td>"+ value.estado +"</td>"+
                 "<td>"+ "<div class='btn-group'>"+
                   "<a href='equipounidads/"+ value.id +"/edit' class='btn btn-default btn-xs'>"+
-                  "<i class='glyphicon glyphicon-edit'></i> Cambiar de Unidad</a>"+
+                  "<i class='glyphicon glyphicon-edit'></i> CAMBIO DE UNIDAD </a>"+
                   "<a href='equipounidads/"+ value.id +"/editestado' class='btn btn-default btn-xs'>"+
-                  "<i class='glyphicon glyphicon-edit'></i> Cambiar estado</a>"+
+                  "<i class='glyphicon glyphicon-edit'></i> ESTADO </a>"+
                 "<a target='_blank' href='historiales/"+ value.id +"' class='btn btn-default btn-xs'>"+
-                "<i class='glyphicon glyphicon-edit'></i>Ver Historial</a>"+
+                "<i class='glyphicon glyphicon-edit'></i> IMPRIMIR HISTORIAL DE ASIGNACION </a>"+
+                "<a target='_blank' href='userequipos/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR CODIGO QR </a>"+
+                "<a target='_blank' href='userequipos/hmantenimiento/"+ value.id +"' class='btn btn-default btn-xs'>"+
+                "<i class='glyphicon glyphicon-edit'></i>IMPRIMIR HISTORIAL DE MANTENIMIENTO </a>"+
                 "</div>"+ 
                 "</td>"+
                 "</tr></tbody>");

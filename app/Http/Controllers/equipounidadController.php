@@ -217,7 +217,7 @@ class EquipounidadController extends AppBaseController
         $his_eq->sub_area_id = $equipounidad->sub_area_id;
         $his_eq->save();
 
-        Flash::success('Equipo Reasignado Exitosamente.');
+        Flash::success('EQUIPO REASIGNADO CORRECTAMENTE.');
 
         return redirect(route('equipounidads.index'));
     }
@@ -346,7 +346,15 @@ class EquipounidadController extends AppBaseController
                     }
 
             }  
-        return ('hola');
+
+        
+                                             
+        
+                
+        
+                                                
+                                                 
+                    return ("ERROR NO SELECCIONO NINGUNA OPCION");                        
         //return view('equipounidads.show')->with('equipounidad', $equipounidad);
     }
 }

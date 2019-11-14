@@ -2,14 +2,14 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Cites Gestion:{!! $gestion->gestion !!}</h1>
+        <h1 class="pull-left">CITES GESTION:{!! $gestion->gestion !!}</h1>
         <h1 class="pull-right">
             
            
 
-            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('gestion.cerrar') !!}">Cerrar Gestion</a>
+            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('gestion.cerrar') !!}">CERRAR GESTION</a>
 
-            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#gestion">Abrir gestion</a>
+            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#gestion">ABRIR GESTION</a>
             <!-- Button trigger modal -->
 
 
@@ -18,7 +18,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">SELECCIONE GESTION</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -44,8 +44,8 @@
                         <input type="hidden" value="abierto" name="estado">
                         
                         <div class="form-group col-sm-12">
-                            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                            <a href="{!! route('cites.index') !!}" class="btn btn-default">Cancel</a>
+                            {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
+                            <a href="{!! route('cites.index') !!}" class="btn btn-default">CANCELAR</a>
                         </div>
 
 
@@ -54,8 +54,8 @@
             </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                
+                
               </div>
             </div>
           </div>
