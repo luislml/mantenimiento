@@ -165,3 +165,9 @@ Route::get('cargaEventos{id?}','CalendarController@index1');
 Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
 Route::post('actualizaEventos','CalendarController@update');
 Route::post('eliminaEvento','CalendarController@delete');
+
+Route::resource('programas', 'programaController');
+Route::get('descargar_programa/{id}', 'programaController@descargar_programa');
+
+Route::resource('actualizadors', 'actualizadorController');
+Route::get('descargar_actualizador/{id}', 'actualizadorController@descargar_actualizador');

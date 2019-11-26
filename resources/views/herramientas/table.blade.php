@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>HERRAMIENTA</th>
-                <th>FILE</th>
+                <th>ARCHIVO</th>
                 <th>ACCION</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
-                    <a href="descargar_publicacion/<?=  $herramientas->id;   ?>"  ><button class="btn  btn-success btn-xs">Descargar</button></a>
+                    <a href="descargar_publicacion/<?=  $herramientas->id;   ?>"  ><button class="btn  btn-success btn-xs">DESCARGAR</button></a>
                 </td>
             </tr>
         @endforeach
@@ -29,7 +29,7 @@
         <tfoot>
             <tr>
                 <th>HERRAMIENTA</th>
-                <th>FILE</th>
+                <th>ARCHIVO</th>
                 <th>ACCION</th>
             </tr>
         </tfoot>

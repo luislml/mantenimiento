@@ -6,28 +6,28 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    {!! Html::style('plugins/bootstrap/bootstrap.min.css') !!}
+    {!! Html::style('plugins/bootstrap/bootstrap-toggle.min.css') !!}
     <!-- Font Awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-
+    {!! HTML::style('plugins/fontawesome/font-awesome.min.css') !!}
+  
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/skins/_all-skins.min.css">
-
+    {!! Html::style('plugins/AdminLTE/AdminLTE.min.css') !!}
+    {!! Html::style('plugins/AdminLTE/_all-skins.min.css') !!}
     <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-
+    {!! Html::style('plugins/AdminLTE/skinsquare_all.css') !!}
+    {!! Html::style('plugins/select2/select2.min.css') !!}
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css"> 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    {!! Html::style('plugins/ionicons/ionicons.min.css') !!}
+    {!! Html::style('plugins/ionicons/bootstrap-datetimepicker.min.css') !!}
+    <!-- data tables -->    
+    {!! Html::style('plugins/dataTables/dataTables.bootstrap.min.css') !!}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <!-- fullcalendar -->
     {!! Html::style('plugins/fullcalendar/fullcalendar.min.css') !!}
+    {!! Html::style('plugins/jQuery/jquery-ui.css') !!}
+
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
 
     @yield('css')
 </head>
@@ -162,33 +162,28 @@
         </div>
     </div>
     @endif
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="plugins/fullcalendar/fullcalendar.min.js"></script>
-
-
-    <!-- jQuery 3.1.1 -->
     
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
+    <!-- jQuery-->
+    <script src="{{ asset('plugins/jQuery/jquery-1.12.4.js') }}"></script>
+    <script src="{{ asset('plugins/jQuery/jquery-ui.js') }}"></script>
+    <!-- moment -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <!-- full calendar -->
+    <script src="{{ asset('plugins/fullcalendar/fullcalendar.min.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/bootstrap-toggle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
-
-    <
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> 
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-    <script src="cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"></script>
-
-    
+    <script src="{{ asset('plugins/AdminLTE/adminlte.min.js') }}"></script>
+    <!-- icheck -->
+    <script src="{{ asset('plugins/icheck/icheck.min.js') }}"></script>
+    <!-- select2 -->
+    <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
+    <!-- data tables -->
+    <script src="{{ asset('plugins/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/dataTables/dataTables.bootstrap.min.js') }}"></script>
+    <!-- jQuery mask-->
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     @yield('scripts')
 </body>

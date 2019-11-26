@@ -55,9 +55,6 @@ class HerramientasController extends AppBaseController
      */
     public function store(CreateHerramientasRequest $request)
     {
-        
-
-
         if($request->file('file')){
             
             $file = $request->file('file');
@@ -158,7 +155,7 @@ class HerramientasController extends AppBaseController
 
             return redirect(route('herramientas.index'));
         }
-
+        unlink('../public/hera/'.$herramientas->file);
         $this->herramientasRepository->delete($id);
 
         Flash::success('Herramientas deleted successfully.');

@@ -94,15 +94,15 @@
 </li>
 @endif
 
-@if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
+<!--@if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
 <li class="{{ Request::is('herramientas*') ? 'active' : '' }}">
     <a href="{!! route('herramientas.index') !!}"><i class="fa fa-gears"></i><span>Herramientas</span></a>
 </li>
-@endif
+@endif-->
 
 @if(auth()->user()->hasRoles(['Admin','operador']))
 <li class="{{ Request::is('cronogramas') ? 'active' : '' }}">
-    <a href="{!! route('cronogramas.index') !!}"><i class="fa fa-gears"></i><span>Cronogramas</span></a>
+    <a href="{!! route('cronogramas.index') !!}"><i class="fa fa-table"></i><span>Cronogramas</span></a>
 </li>
 @endif
 
@@ -138,5 +138,32 @@
     <a href="{!! route('historiales.index') !!}"><i class="fa fa-edit"></i><span>Historiales</span></a>
 </li>-->
 
+<!--
 
+<li class="{{ Request::is('programas*') ? 'active' : '' }}">
+    <a href="{!! route('programas.index') !!}"><i class="fa fa-edit"></i><span>Programas</span></a>
+</li>
 
+<li class="{{ Request::is('actualizadors*') ? 'active' : '' }}">
+    <a href="{!! route('actualizadors.index') !!}"><i class="fa fa-edit"></i><span>Actualizadors</span></a>
+</li>-->
+
+@if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-gears"></i> <span>herramientas</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{{ Request::is('programas*') ? 'active' : '' }}">
+                <a href="{!! route('programas.index') !!}"><i class="fa fa-expeditedssl"></i><span>Programas</span></a>
+            </li>
+            <li class="{{ Request::is('herramientas*') ? 'active' : '' }}">
+                <a href="{!! route('herramientas.index') !!}"><i class="fa fa-cog"></i><span>Drivers</span></a>
+            </li>
+            <li class="{{ Request::is('actualizadors*') ? 'active' : '' }}">
+                <a href="{!! route('actualizadors.index') !!}"><i class="fa fa-eject"></i><span>Actualizadores</span></a>
+            </li>
+        </ul>
+    </li>
+@endif

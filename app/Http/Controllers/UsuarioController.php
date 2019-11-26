@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\Usuario;
 
 class UsuarioController extends AppBaseController
 {
@@ -31,8 +32,9 @@ class UsuarioController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $usuarios = $this->usuarioRepository->all();
-
+        
+        $usuarios = Usuario::where("password","!=",null)->get()->toArray();
+       
         return view('usuarios.index')
             ->with('usuarios', $usuarios);
     }

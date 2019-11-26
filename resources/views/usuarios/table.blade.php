@@ -1,6 +1,5 @@
-
 <div class="table-responsive">
-    <table id="usuarios" class="table table-striped table-bordered" style="width:100%">
+    <table id="usuario" class="table table-striped table-bordered" style="width:100%" >
         <thead>
             <tr>
                 <th>NOMBRE</th>
@@ -12,37 +11,27 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($usuarios as $usuario)
+        @foreach($usuarios as $usuario)
             <tr>
-                @if(!empty($usuario->password))
-                <td>{!! $usuario->nombre !!}</td>
-                <td>{!! $usuario->apellido !!}</td>
-                <td>{!! $usuario->ci !!}</td>
-                <td>{!! $usuario->telefono !!}</td>
-                <td>{!! $usuario->rol !!}</td>
+                
+                <td>{!! $usuario['nombre'] !!}</td>
+                <td>{!! $usuario['apellido'] !!}</td>
+                <td>{!! $usuario['ci'] !!}</td>
+                <td>{!! $usuario['telefono'] !!}</td>
+                <td>{!! $usuario['rol'] !!}</td>
                 <td>
-                    {!! Form::open(['route' => ['usuarios.destroy', $usuario->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['usuarios.destroy', $usuario['id']], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <!-- 
-                        <a href="{!! route('usuarios.show', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i>VER</a>
-                         -->
-
-                        <a href="{!! route('usuarios.edit', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ROL O EDITAR</a>
-                        <a href="{!! route('personafs.edit', [$usuario->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ASIGNAR UNIDAD</a>
+                        <a href="{!! route('usuarios.edit', [$usuario['id']]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ROL O EDITAR</a>
+                        <a href="{!! route('personafs.edit', [$usuario['id']]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>ASIGNAR UNIDAD</a>
 
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Estas seguro/a?')"]) !!}
-                        
-                    
-                    
+                    </div>
                     {!! Form::close() !!}
-
-                   
                 </td>
-                @endif
                 
             </tr>
         @endforeach
-            
         </tbody>
         <tfoot>
             <tr>
@@ -62,7 +51,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#usuarios').DataTable({
+            $('#usuario').DataTable({
                 language: {
                     "decimal": "",
                     "emptyTable": "No hay información",

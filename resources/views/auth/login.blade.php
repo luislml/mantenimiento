@@ -9,20 +9,16 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    {!! Html::style('plugins/bootstrap/bootstrap.min.css') !!}
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    {!! HTML::style('plugins/fontawesome/font-awesome.min.css') !!}
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
+    {!! Html::style('plugins/ionicons/ionicons.min.css') !!}
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/skins/_all-skins.min.css">
-
+    {!! Html::style('plugins/AdminLTE/AdminLTE.min.css') !!}
+    {!! Html::style('plugins/AdminLTE/_all-skins.min.css') !!}
     <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
+    {!! Html::style('plugins/AdminLTE/skinsquare_all.css') !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +55,7 @@
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" class="form-control" placeholder="CONTRASEÑA" name="password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <span class="fa fa-key form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>
@@ -93,13 +89,13 @@
 </div>
 <!-- /.login-box -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{ asset('plugins/jQuery/jquery-1.12.4.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
 
 <!-- AdminLTE App -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+<script src="{{ asset('plugins/AdminLTE/adminlte.min.js') }}"></script>
+    <!-- icheck -->
+<script src="{{ asset('plugins/icheck/icheck.min.js') }}"></script>
 <script>
     $(function () {
         $('input').iCheck({
