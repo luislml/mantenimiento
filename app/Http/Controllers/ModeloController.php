@@ -18,6 +18,9 @@ class ModeloController extends AppBaseController
     public function __construct(ModeloRepository $modeloRepo)
     {
         $this->modeloRepository = $modeloRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**
@@ -58,7 +61,7 @@ class ModeloController extends AppBaseController
 
         $modelo = $this->modeloRepository->create($input);
 
-        Flash::success('Modelo saved successfully.');
+        Flash::success('MODELO GUARDADO CORRECTAMENTE.');
 
         return redirect(route('modelos.index'));
     }
@@ -149,7 +152,7 @@ class ModeloController extends AppBaseController
 
         $this->modeloRepository->delete($id);
 
-        Flash::success('Modelo deleted successfully.');
+        Flash::success('MODELO ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('eInformaticos.create'));
     }

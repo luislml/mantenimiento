@@ -80,6 +80,7 @@ class MantenimientoController extends AppBaseController
     public function index(Request $request)
     {
         $mantenimientos = $this->mantenimientoRepository->all();
+         
         return view('mantenimientos.index')
             ->with('mantenimientos', $mantenimientos);
     }
@@ -127,15 +128,34 @@ class MantenimientoController extends AppBaseController
                 $cite->save();
             }
         }
-        
-        
-        
-
         Flash::success('MANTENIMIENTO REALIZADO CORRECTAMENTE.');
 
         return redirect(route('mantenimientos.index'));
     }
-
+    public function solocite($id)
+    {
+        $mant = Mantenimiento::find($id);
+                //cites
+                $gestion = Gestion::find(1);
+                $cite = new Cite;
+                $cite->gestion_id=$gestion->gestion;
+                $cite->mantenimiento_id=$mant->id;
+                $cite->save();
+                $cites = cite::find($cite->id-1);   
+            if ($cites->cite == null) 
+            {
+                $cite->cite=1;
+                $cite->save();
+            }
+            else
+            {      
+                $dato=$cites->cite;
+                $cite->cite=$dato+1;
+                $cite->save();
+            }    
+        Flash::success('CITE CREADO CORRECTAMENTE.');
+        return redirect(route('mantenimientos.index'));
+    }
     /**
      * Display the specified Mantenimiento.
      *
@@ -153,8 +173,7 @@ class MantenimientoController extends AppBaseController
             return redirect(route('mantenimientos.index'));
         }
         $pdf = PDF::loadView('mantenimientos.pdf', compact('mantenimientos'))->setPaper(array(0, 0, 612, 792), 'landscape');
-        return $pdf->stream();
-        
+        return $pdf->stream();   
     }
     public function imprimir(){
       $mantenimientos = Mantenimiento::all();

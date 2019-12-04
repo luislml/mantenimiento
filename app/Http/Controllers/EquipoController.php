@@ -18,6 +18,9 @@ class EquipoController extends AppBaseController
     public function __construct(EquipoRepository $equipoRepo)
     {
         $this->equipoRepository = $equipoRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**

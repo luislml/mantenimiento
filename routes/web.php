@@ -124,6 +124,7 @@ Route::Get('mantenimientos/getequiposa/{id}', 'MantenimientoController@getequipo
 Route::Get('mantenimientos/getusuariossa/{id}', 'MantenimientoController@getusuariossa');
 Route::Get('mantenimientos/getequipossa/{id}', 'MantenimientoController@getequipossa');
 Route::Get('/imprimirr', 'MantenimientoController@imprimir');
+route::Get('mantenimientos/{id}/cite', ['as'=>'mantenimientos.solocite', 'uses'=>'MantenimientoController@solocite']);
 
 
 
@@ -160,11 +161,12 @@ Route::resource('historiales', 'HistorialeController');
 
 Route::resource('cronogramas', 'CalendarController');
 //rutA fullcalendar
-
 Route::get('cargaEventos{id?}','CalendarController@index1');
 Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
 Route::post('actualizaEventos','CalendarController@update');
 Route::post('eliminaEvento','CalendarController@delete');
+route::get('cronograma', ['as'=>'cronograma.print', 'uses'=>'CalendarController@print']);
+
 
 Route::resource('programas', 'programaController');
 Route::get('descargar_programa/{id}', 'programaController@descargar_programa');

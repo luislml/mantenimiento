@@ -18,6 +18,9 @@ class MarcaController extends AppBaseController
     public function __construct(MarcaRepository $marcaRepo)
     {
         $this->marcaRepository = $marcaRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**
@@ -58,7 +61,7 @@ class MarcaController extends AppBaseController
 
         $marca = $this->marcaRepository->create($input);
 
-        Flash::success('Marca saved successfully.');
+        Flash::success('MARCA GUARDADO CORRECTAMENTE.');
 
         return redirect(route('marcas.index'));
     }
@@ -149,7 +152,7 @@ class MarcaController extends AppBaseController
 
         $this->marcaRepository->delete($id);
 
-        Flash::success('Marca deleted successfully.');
+        Flash::success('MARCA ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('eInformaticos.create'));
     }

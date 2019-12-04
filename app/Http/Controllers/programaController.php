@@ -20,6 +20,9 @@ class programaController extends AppBaseController
     public function __construct(programaRepository $programaRepo)
     {
         $this->programaRepository = $programaRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador,estudiante'
+                    ]);
     }
 
     /**
@@ -70,7 +73,7 @@ class programaController extends AppBaseController
        $herra->archivo = $name;
        $herra->save();
 
-        Flash::success('Programa saved successfully.');
+        Flash::success('PROGRAMA GUARDADO CORRECTAMENTE.');
 
         return redirect(route('programas.index'));
 
@@ -164,7 +167,7 @@ class programaController extends AppBaseController
         unlink('../public/hera/'.$programa->archivo);
         $this->programaRepository->delete($id);
 
-        Flash::success('Programa deleted successfully.');
+        Flash::success('PROGRAMA ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('programas.index'));
     }

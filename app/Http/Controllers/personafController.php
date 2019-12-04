@@ -246,7 +246,7 @@ class personafController extends AppBaseController
 
         $this->personafRepository->delete($id);
 
-        Flash::success('Personaf deleted successfully.');
+        Flash::success('PERSONAL ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('personafs.index'));
     }

@@ -18,6 +18,9 @@ class RecomendacionController extends AppBaseController
     public function __construct(RecomendacionRepository $recomendacionRepo)
     {
         $this->recomendacionRepository = $recomendacionRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**

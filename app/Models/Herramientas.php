@@ -25,7 +25,8 @@ class Herramientas extends Model
 
     public $fillable = [
         'nombre',
-        'file'
+        'file',
+        'bits'
     ];
 
     /**
@@ -36,7 +37,8 @@ class Herramientas extends Model
     protected $casts = [
         'id' => 'integer',
         'nombre' => 'string',
-        'file' => 'string'
+        'file' => 'string',
+        'bits' => 'string'
     ];
 
     /**
@@ -46,7 +48,8 @@ class Herramientas extends Model
      */
     public static $rules = [
         'nombre' => 'required',
-        'file' => 'required'
+        'file' => 'required',
+        'bits' => 'required'
     ];
 
     

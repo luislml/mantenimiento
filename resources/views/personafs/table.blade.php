@@ -37,7 +37,7 @@
                         
                         <a href="{!! route('personafs.edit', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR AREA DE TRABAJO</a>
                         <a href="{!! route('personafs.editestado', [$personaf->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR ESTADO</a>
-                        
+                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}    
                     </div>
                     {!! Form::close() !!}
                 </td>

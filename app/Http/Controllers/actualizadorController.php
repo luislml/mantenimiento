@@ -20,6 +20,9 @@ class actualizadorController extends AppBaseController
     public function __construct(actualizadorRepository $actualizadorRepo)
     {
         $this->actualizadorRepository = $actualizadorRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador,estudiante'
+                    ]);
     }
 
     /**
@@ -69,7 +72,7 @@ class actualizadorController extends AppBaseController
        $herra->actualizador = $name;
        $herra->save();
 
-        Flash::success('Actualizador saved successfully.');
+        Flash::success('ACTUALIZADOR GUARDADO CORRECTAMENTE.');
 
         return redirect(route('actualizadors.index'));
     }
@@ -159,7 +162,7 @@ class actualizadorController extends AppBaseController
         }
         unlink('../public/hera/'.$actualizador->actualizador);
         $this->actualizadorRepository->delete($id);
-        Flash::success('Actualizador deleted successfully.');
+        Flash::success('ACTUALIZADOR ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('actualizadors.index'));
 

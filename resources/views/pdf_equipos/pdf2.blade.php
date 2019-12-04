@@ -68,7 +68,7 @@
               <input type="hidden" {{ $apellido = $equipo->usuario->apellido }}>
               <input type="hidden" {{ $unidad = $equipo->unidad['nombre'] }}>
                 <td>
-                  <img src="data:image/png;base64, {!!base64_encode(QrCode::format('png')->size(200)->margin(1)->generate("NOMBRE:$nombre $apellido | EQUIPO:$equipo->nombre | MARCA:$equipo->marca | MODELO:$equipo->modelo | UNIDAD:$unidad"))!!}">
+                  <img src="data:image/png;base64, {!!base64_encode(QrCode::format('png')->size(200)->margin(1)->generate("NOMBRE:$nombre $apellido | EQUIPO:$equipo->nombre | ACTIVO:$equipo->numero_activo | MARCA:$equipo->marca | MODELO:$equipo->modelo | UNIDAD:$unidad"))!!}">
                   
                 </td>
             </tr>

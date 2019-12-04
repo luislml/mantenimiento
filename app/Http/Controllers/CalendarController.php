@@ -6,8 +6,16 @@ use App\Models\Area;
 use App\Models\Sub_Area;
 use Illuminate\Http\Request;
 use App\Fullcalendarevento;
+use PDF;
 class CalendarController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
+    }
 
     public function index()
     {
@@ -101,4 +109,10 @@ class CalendarController extends Controller
 
         Fullcalendarevento::destroy($id);
    }
+   public function print(){
+        $events = Fullcalendarevento::orderBy('fechaIni','ASC')->get();
+        $pdf = PDF::loadView('cronogramas.print', compact('events'))->setPaper(array(0, 0, 612, 792), 'portrait');
+        return $pdf->stream();
+    }
+
 }

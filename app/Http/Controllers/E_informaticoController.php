@@ -101,7 +101,7 @@ class E_informaticoController extends AppBaseController
     public function store(CreateE_informaticoRequest $request)
     {
         $input = $request->all();
-        dd($input);
+        
         $eInformatico = $this->eInformaticoRepository->create($input);
 
         Flash::success('EQUIPO INFORMATICO GUARDADO CORRECTAMENTE.');

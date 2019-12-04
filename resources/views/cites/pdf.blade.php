@@ -24,7 +24,7 @@
         
        <br>
         <h2 align="center">INFORME TÉCNICO</h2>
-        <h4 align="center">{{ $cite->gestion_id }} - {{ $cite->cite }} </h4>  
+        <h4 align="center">CITE SIS - {{ $cite->cite }} - {{ $cite->gestion_id }}</h4>  
         <br><br>
 
   </header>
@@ -52,7 +52,7 @@
   </div>
 <footer class="main-footer" style="max-height: 100px;text-align: center">
     <strong align="center">ING: {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</strong><br>
-    <strong>TECNICO AREA DE INFORMATICA Y TELECOMUNICACIONES</strong> <br><strong>SEDES POTOSI</strong>
+    <strong>AREA DE INFORMATICA Y TELECOMUNICACIONES</strong> <br><strong>SEDES POTOSI</strong>
 </footer>
 
   

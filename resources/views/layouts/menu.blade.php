@@ -155,13 +155,13 @@
             <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-            <li class="{{ Request::is('programas*') ? 'active' : '' }}">
+            <li>
                 <a href="{!! route('programas.index') !!}"><i class="fa fa-expeditedssl"></i><span>Programas</span></a>
             </li>
-            <li class="{{ Request::is('herramientas*') ? 'active' : '' }}">
+            <li>
                 <a href="{!! route('herramientas.index') !!}"><i class="fa fa-cog"></i><span>Drivers</span></a>
             </li>
-            <li class="{{ Request::is('actualizadors*') ? 'active' : '' }}">
+            <li>
                 <a href="{!! route('actualizadors.index') !!}"><i class="fa fa-eject"></i><span>Actualizadores</span></a>
             </li>
         </ul>

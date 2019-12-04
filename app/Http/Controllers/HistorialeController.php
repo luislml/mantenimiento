@@ -24,6 +24,9 @@ class HistorialeController extends AppBaseController
     public function __construct(HistorialeRepository $historialeRepo)
     {
         $this->historialeRepository = $historialeRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador,estudiante'
+                    ]);
     }
 
     /**

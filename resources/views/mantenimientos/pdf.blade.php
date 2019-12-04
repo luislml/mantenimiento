@@ -16,7 +16,7 @@
     <img src={{asset('img/LOGOUNIDAD.png')}} width="90" align="left">
         <img src={{asset('img/LogoSedes2019-Oficial-peq.png')}} width="90" align="right">
         <h3 align="center">PLANILLA DE MANTENIMIENTO</h3>
-        <h4 align="center">Nombre Tecnico: {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</h4>  
+        <h4 align="center">NOMBRE TECNICO: {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</h4>  
         <br><br>
 
   </header>
@@ -24,17 +24,19 @@
     <table width="100%">
            <thead> 
             <tr>      
-                <th width="10%">Fecha</th>
-                <th width="43%">Descripcion</th>
-                <th width="25%">Funcionario</th>
-                <th width="22%">Unidad</th>
+                <th width="10%">FECHA</th>
+                <th width="10%">EQUIPO</th>
+                <th width="33%">DESCRIPCION</th>
+                <th width="25%">FUNCIONARIO</th>
+                <th width="22%">UNIDAD</th>
             </tr>
         </thead>
         <tbody>
         @foreach($mantenimientos as $mantenimiento)
             <tr>
                 <td width="10%">{!! $mantenimiento->fecha->todateString() !!}</td>
-                <td width="43%" align=""><?php echo nl2br($mantenimiento->descripcion); ?></td>
+                <td width="10%">{!! $mantenimiento->equipos->nombre !!}</td>
+                <td width="33%" align=""><?php echo nl2br($mantenimiento->descripcion); ?></td>
                 <td width="25%">{!! $mantenimiento->equipos->usuario->nombre !!}
                     {!! $mantenimiento->equipos->usuario->apellido !!}</td>
                 <td width="22%">{!! $mantenimiento->equipos->unidad->nombre !!}</td>

@@ -11,7 +11,7 @@
         <div class="col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Eventos</h4>
+              <h4 class="box-title">EVENTOS</h4>
             </div>
             <div class="box-body">
               <!-- the events -->
@@ -21,7 +21,7 @@
               <div class="panel panel-default wow fadInLeft">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Unidades</a>
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">UNIDADES</a>
                       </h4>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse on">
@@ -39,7 +39,7 @@
               <div class="panel panel-default wow fadInLeft">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">Areas</a>
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">AREAS</a>
                       </h4>
                   </div>
                   <div id="collapsetwo" class="panel-collapse collapse on">
@@ -56,7 +56,7 @@
               <div class="panel panel-default wow fadInLeft">
                   <div class="panel-heading">
                       <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapsetree">Sub Areas</a>
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapsetree">SUB AREAS</a>
                       </h4>
                   </div>
                   <div id="collapsetree" class="panel-collapse collapse on">
@@ -67,15 +67,11 @@
                       @endforeach
                   </div>
               </div>
-          </div>
-
-
-    
-
+              </div>
                 <div class="checkbox">
                   <label for="drop-remove">
                     <input type="checkbox" id="drop-remove">
-                    Eliminar al asignar
+                    ELIMINAR AL ASIGNAR
                   </label>
                 </div>
               </div>
@@ -85,7 +81,7 @@
           <!-- /. box -->
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Crear evento</h3>
+              <h3 class="box-title">CREAR EVENTO</h3>
             </div>
             <div class="box-body">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
@@ -111,14 +107,31 @@
                 <input id="new-event" type="text" class="form-control" placeholder="Titulo de evento">
 
                 <div class="input-group-btn">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Agregar</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">AGREGAR</button>
                 </div>
+
+                
+                
                 <!-- /btn-group -->
               </div><br/><br/>
               <!-- /input-group -->
               {!! Form::open(['route' => ['guardaEventos'], 'method' => 'POST', 'id' =>'form-calendario']) !!}
               {!! Form::close() !!}
             </div>
+                <div class="box with-border">
+                    <a target="_blank" href="{!! route('cronograma.print') !!}" class="btn btn-primary btn-block btn-flat" >IMPRIMIR</a>
+                </div>
+                <!-- Date range -->
+                  <div class="form-group">
+                    <label>Date range:</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control pull-right" id="reservation">
+                    </div><!-- /.input group -->
+                  </div><!-- /.form group -->
+                
           </div>
         </div>
         <!-- /.col -->
@@ -142,6 +155,7 @@
 </div>
 </div>
 
+
 @endsection
 
 
@@ -150,6 +164,7 @@
   $(function () {
     /* initialize the external events
      -----------------------------------------------------------------*/
+     $('#reservation').daterangepicker();
     function ini_events(ele) {
       ele.each(function () {
         // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
@@ -352,4 +367,5 @@
     });
   });
 </script>
+
 @endsection

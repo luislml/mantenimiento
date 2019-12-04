@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+      function upperCaseF(a){
+        setTimeout(function(){
+            a.value = a.value.toUpperCase();
+            }, 1);
+        }
+    </script>
     <section class="content-header">
         <h1>
             PROGRAMA

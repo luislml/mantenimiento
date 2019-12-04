@@ -19,6 +19,10 @@ class HerramientasController extends AppBaseController
     public function __construct(HerramientasRepository $herramientasRepo)
     {
         $this->herramientasRepository = $herramientasRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador,estudiante'
+                    ]);
+        
     }
 
     /**
@@ -64,10 +68,11 @@ class HerramientasController extends AppBaseController
 
        $herra = new Herramientas();
        $herra->nombre = $request->input('nombre');
+       $herra->bits = $request->input('bits');
        $herra->file = $name;
        $herra->save();
 
-        Flash::success('Herramientas saved successfully.');
+        Flash::success('DRIVER GUARDADO CORRECTAMENTE.');
 
         return redirect(route('herramientas.index'));
     }
@@ -158,7 +163,7 @@ class HerramientasController extends AppBaseController
         unlink('../public/hera/'.$herramientas->file);
         $this->herramientasRepository->delete($id);
 
-        Flash::success('Herramientas deleted successfully.');
+        Flash::success('DRIVER ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('herramientas.index'));
     }

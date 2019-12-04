@@ -26,6 +26,7 @@
     <!-- fullcalendar -->
     {!! Html::style('plugins/fullcalendar/fullcalendar.min.css') !!}
     {!! Html::style('plugins/jQuery/jquery-ui.css') !!}
+    {!! Html::style('plugins/daterangepicker/daterangepicker-bs3.css') !!}
 
     <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
 
@@ -185,6 +186,7 @@
     <script src="{{ asset('plugins/dataTables/dataTables.bootstrap.min.js') }}"></script>
     <!-- jQuery mask-->
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
     @yield('scripts')
 </body>
 </html> 

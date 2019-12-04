@@ -19,6 +19,9 @@ class ObservacionController extends AppBaseController
     public function __construct(ObservacionRepository $observacionRepo)
     {
         $this->observacionRepository = $observacionRepo;
+        $this->middleware([
+                        'auth','rol:Admin,operador'
+                    ]);
     }
 
     /**
