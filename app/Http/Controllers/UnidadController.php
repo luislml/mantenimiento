@@ -61,7 +61,7 @@ class UnidadController extends AppBaseController
 
         $unidad = $this->unidadRepository->create($input);
 
-        Flash::success('Unidad saved successfully.');
+        Flash::success('UNIDAD GUARDADO CORRECTAMENTE.');
 
         return redirect(route('unidads.index'));
     }
@@ -126,7 +126,7 @@ class UnidadController extends AppBaseController
 
         $unidad = $this->unidadRepository->update($request->all(), $id);
 
-        Flash::success('Unidad updated successfully.');
+        Flash::success('UNIDAD ACTUALIZADO CORRECTAMENTE.');
 
         return redirect(route('unidads.index'));
     }
@@ -152,7 +152,7 @@ class UnidadController extends AppBaseController
 
         $this->unidadRepository->delete($id);
 
-        Flash::success('Unidad deleted successfully.');
+        Flash::success('UNIDAD ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('unidads.index'));
     }

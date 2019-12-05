@@ -160,9 +160,6 @@ class UserequipoController extends AppBaseController
     {
         $hmantenimiento = Mantenimiento::where('e_informatico_id', $id)->get();
         $einfo = E_informatico::find($id);
-
-       
-     
         if (empty($hmantenimiento)) {
             Flash::error('Userequipo not found');
 

@@ -118,19 +118,26 @@
               {!! Form::open(['route' => ['guardaEventos'], 'method' => 'POST', 'id' =>'form-calendario']) !!}
               {!! Form::close() !!}
             </div>
-                <div class="box with-border">
-                    <a target="_blank" href="{!! route('cronograma.print') !!}" class="btn btn-primary btn-block btn-flat" >IMPRIMIR</a>
-                </div>
-                <!-- Date range -->
+
+            {!! Form::open(['route' => 'cronograma.print','target' => '_blank']) !!}                      
+              <!-- Date range -->
                   <div class="form-group">
                     <label>Date range:</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                       </div>
-                      <input type="text" class="form-control pull-right" id="reservation">
+                      <input type="text" name="rango" class="form-control pull-right" id="reservation">
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
+
+                <!-- Submit Field -->
+                <div class="form-group col-sm-12">
+                    {!! Form::submit('IMPRIMIR', ['class' => 'btn btn-primary']) !!}
+                </div>
+            {!! Form::close() !!}
+                
+                
                 
           </div>
         </div>

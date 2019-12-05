@@ -165,7 +165,7 @@ Route::get('cargaEventos{id?}','CalendarController@index1');
 Route::post('guardaEventos', array('as' => 'guardaEventos','uses' => 'CalendarController@create'));
 Route::post('actualizaEventos','CalendarController@update');
 Route::post('eliminaEvento','CalendarController@delete');
-route::get('cronograma', ['as'=>'cronograma.print', 'uses'=>'CalendarController@print']);
+route::post('cronograma', ['as'=>'cronograma.print', 'uses'=>'CalendarController@print']);
 
 
 Route::resource('programas', 'programaController');

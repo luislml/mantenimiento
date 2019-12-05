@@ -65,16 +65,14 @@ class AreaController extends AppBaseController
     public function index(Request $request)
     {
         $areas = $this->areaRepository->all();
-
         return view('areas.index')
             ->with('areas', $areas);
     }
     public function indexx($id)
     {
-        $areas = $this->areaRepository->all();
         
         $unidad = Unidad::findOrfail($id);
-        
+        $areas = Area::where('unidad_id', $id)->get();
         return view('areas.index')
             ->with('areas', $areas)
             ->with('unidad', $unidad);
@@ -170,7 +168,7 @@ class AreaController extends AppBaseController
 
         $area = $this->areaRepository->update($request->all(), $id);
 
-        Flash::success('Area updated successfully.');
+        Flash::success('AREA ACTUALIZADO CORRECTAMENTE.');
             
         return redirect(route('areass.indexx', [$area->unidad_id]));
     }
@@ -196,7 +194,7 @@ class AreaController extends AppBaseController
 
         $this->areaRepository->delete($id);
 
-        Flash::success('Area deleted successfully.');
+        Flash::success('AREA ELIMINADO CORRECTAMENTE.');
 
         return redirect(route('areass.indexx', [$area->unidad_id]));
     }

@@ -2,12 +2,9 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Unidad - {{ $unidad->nombre }} - Area - {{ $area->nombre }} - Sub Areas</h1>
-
-        
-
+        <h1 class="pull-left">AREA - {{ $area->nombre }} - SUB AREAS</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('subAreas.createe', [$area->id]) !!}"><i class="fa fa-fw fa-plus"></i>Añadir Nuevo</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('subAreas.createe', [$area->id]) !!}"><i class="fa fa-fw fa-plus"></i>AÑADIR NUEVO</a>
         </h1>
     </section>
     <div class="content">

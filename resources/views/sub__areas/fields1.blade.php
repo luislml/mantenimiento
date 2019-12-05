@@ -10,7 +10,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-        <a href="{!! route('subAreass.indexx', [$area_id]) !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('GUARDAR', ['class' => 'btn btn-primary']) !!}
+        <a href="{!! route('subAreass.indexx', [$area_id]) !!}" class="btn btn-default">CANCELAR</a>
 
 </div>

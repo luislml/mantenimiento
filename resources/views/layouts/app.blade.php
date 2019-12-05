@@ -22,7 +22,7 @@
     {!! Html::style('plugins/ionicons/bootstrap-datetimepicker.min.css') !!}
     <!-- data tables -->    
     {!! Html::style('plugins/dataTables/dataTables.bootstrap.min.css') !!}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <!-- fullcalendar -->
     {!! Html::style('plugins/fullcalendar/fullcalendar.min.css') !!}
     {!! Html::style('plugins/jQuery/jquery-ui.css') !!}
@@ -73,14 +73,14 @@
                                          class="img-circle" alt="User Image"/>
                                     <p>
                                         {!! Auth::user()->nombre !!} {!! Auth::user()->apellido !!}
-                                        <small>Miembro desde {!! Auth::user()->created_at->format('M. Y') !!}</small>
+                                        <small>Miembro desde {!! Auth::user()->created_at->format('D M Y') !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
+                                   <!-- <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                    </div>-->
                                     <div class="pull-right">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

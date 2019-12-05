@@ -54,12 +54,9 @@ class Sub_AreaController extends AppBaseController
     }
     public function indexx($id)
     {
-        $subAreas = $this->subAreaRepository->all();
-        
         $area = Area::findOrfail($id);
-        
         $unidad = Unidad::findOrfail($area->unidad_id);
-        
+        $subAreas = Sub_Area::where('area_id', $id)->get();
         return view('sub__areas.index')
             ->with('subAreas', $subAreas)
             ->with('area', $area)
@@ -89,7 +86,7 @@ class Sub_AreaController extends AppBaseController
 
         $subArea = $this->subAreaRepository->create($input);
 
-        Flash::success('Sub  Area saved successfully.');
+        Flash::success('SUB AREA GUARDADO CORRECTAMENTE.');
 
         return redirect(route('subAreass.indexx', [$subArea->area_id]));
 
@@ -155,7 +152,7 @@ class Sub_AreaController extends AppBaseController
 
         $subArea = $this->subAreaRepository->update($request->all(), $id);
 
-        Flash::success('Sub  Area updated successfully.');
+        Flash::success('SUB AREA ACTUALIZADO CORRECTAMENTE.');
 
         return redirect(route('subAreass.indexx', [$subArea->area_id]));
     }
@@ -181,7 +178,7 @@ class Sub_AreaController extends AppBaseController
 
         $this->subAreaRepository->delete($id);
 
-        Flash::success('Sub  Area deleted successfully.');
+        Flash::success('SUB AREA BORRADO CORRECTAMENTE.');
 
         return redirect(route('subAreas.index', [$subArea->area_id]));
     }

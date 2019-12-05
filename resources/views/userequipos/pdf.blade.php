@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EQUIPO</title>
   <style>
     table, tr, td, thead, tr , th{ border: 1px solid black; text-align: center; top: -100px;}
     th { background-color: #DCDCDC; }
@@ -14,27 +18,49 @@
 <body>
   <header><br><br>
     <img src={{asset('img/LOGOUNIDAD.png')}} width="90" align="left">
-        <img src={{asset('img/LogoSedes2019-Oficial-peq.png')}} width="90" align="right">
-        <h3 align="center">QR EQUIPO ASIGNADO A USUARIO</h3>
-          
-        <br><br>
+        <img src={{asset('img/LogoSedes2019-Oficial-peq.png')}} width="90" align="right">    
+            <p align="center">
+            Servicio Departametal de Salud Potosi <br>   
+            Unidad de Planificacion y Proyectos <br>    
+            Area de Informatica y Telecomunicaciones
+            </p>  
+            
+            
 
   </header>
-  <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2019 <a href="#">S.E.D.E.S.</a></strong> Todos los derechos reservados.
-        </footer>
-
   <body>
-    <div class="form-group" align="center">
-    <h4>Codigo QR</h4>
-   
-
-        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate("NOMBRE:$usuario->nombre $usuario->apellido | EQUIPO:$userequipo->nombre | MARCA:$userequipo->marca | MODELO:$userequipo->modelo | UNIDAD:$unidad->nombre
-        ")) !!} ">
-
+    <table width="100%">
+           <thead> 
+            <tr>      
+                <th>Equipo</th> 
+                <th>QR</th>
+            </tr>
+        </thead>
+        <tbody>
         
-    </div>
+            <tr>
+                <td>
+                  
+                    FUNCIONARIO(A): {!! $usuario->nombre !!}{!! $usuario->apellido !!}<br>
+                  EQUIPO :{!! $userequipo->nombre !!} <br>
+                    NUMERO DE ACTIVO: {!! $userequipo->numero_activo !!} <br>
+                    MARCA: {!! $userequipo->marca !!}<br>
+                    MODELO: {!! $userequipo->modelo!!}
+
+                </td>
+                <td> 
+                  
+                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate("NOMBRE:$usuario->nombre $usuario->apellido | EQUIPO:$userequipo->nombre | MARCA:$userequipo->marca | MODELO:$userequipo->modelo | UNIDAD:$unidad->nombre")) !!} "> 
+                  
+                </td>
+            </tr>
+        
+        </tbody>
+    </table>
   </body>
+    <footer class="main-footer" style="max-height: 100px;text-align: center">
+        <strong>Copyright © 2019 <a href="#">S.E.D.E.S.</a></strong> Todos los derechos reservados.
+    </footer>
 </html>
 
 

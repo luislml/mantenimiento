@@ -7,6 +7,7 @@ use App\Models\Sub_Area;
 use Illuminate\Http\Request;
 use App\Fullcalendarevento;
 use PDF;
+use Carbon\Carbon;
 class CalendarController extends Controller
 {
     
@@ -109,8 +110,20 @@ class CalendarController extends Controller
 
         Fullcalendarevento::destroy($id);
    }
-   public function print(){
-        $events = Fullcalendarevento::orderBy('fechaIni','ASC')->get();
+   public function print(Request $request){
+        $input = $request->all();
+        $rango = $input['rango'];
+
+        $separador = "-";
+        $separada = explode($separador, $rango);
+        $fecha1 = trim($separada[0]);
+        $fecha2 = trim($separada[1]);
+        $date1 = new Carbon($fecha1);
+        $date2 = new Carbon($fecha2);
+        $events=Fullcalendarevento::where("fechaIni",">=",$date1)
+             ->where("fechaIni","<=",$date2)
+             ->get();    
+        $lst = Fullcalendarevento::orderBy('fechaIni','ASC')->get();
         $pdf = PDF::loadView('cronogramas.print', compact('events'))->setPaper(array(0, 0, 612, 792), 'portrait');
         return $pdf->stream();
     }
