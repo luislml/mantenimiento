@@ -275,16 +275,15 @@ class EquipounidadController extends AppBaseController
         $area = Area::find($request->area_id);
         $subarea = Sub_Area::find($request->sub_area_id);
         $usuario = Usuario::find($request->usuario_id);   
-
-    
+        $soloinfo = $request->soloinfo;
+        
         if (($request->unidad_id)!=null &&
             ($request->area_id)!=null &&
             ($request->sub_area_id)!=null &&
             ($request->usuario_id)!=null)
             {
-                $equipos = E_informatico::where('usuario_id', $request->usuario_id)->get();
-                                                               
-                $pdf = PDF::loadView('pdf_equipos.pdf1', compact('equipos','area','unidad','subarea','usuario'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                $equipos = E_informatico::where('usuario_id', $request->usuario_id)->get();                             
+                $pdf = PDF::loadView('pdf_equipos.pdf1', compact('equipos','area','unidad','subarea','usuario','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                         return $pdf->stream();
             }
             else
@@ -295,7 +294,7 @@ class EquipounidadController extends AppBaseController
                     {
                         $equipos = E_informatico::where('sub_area_id', $request->sub_area_id)->get();
                                                                
-                        $pdf = PDF::loadView('pdf_equipos.pdf2', compact('equipos','area','unidad','subarea'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                        $pdf = PDF::loadView('pdf_equipos.pdf2', compact('equipos','area','unidad','subarea','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                         return $pdf->stream(); 
                     }
                     else
@@ -306,7 +305,7 @@ class EquipounidadController extends AppBaseController
                             {
                                 $equipos = E_informatico::where('usuario_id', $request->usuario_id)->get();
                                                          
-                                $pdf = PDF::loadView('pdf_equipos.pdf3', compact('equipos','area','unidad','usuario'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                                $pdf = PDF::loadView('pdf_equipos.pdf3', compact('equipos','area','unidad','usuario','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                                 return $pdf->stream();
                             }
                             else
@@ -317,7 +316,7 @@ class EquipounidadController extends AppBaseController
                                         $equipos = E_informatico::where('area_id', $request->area_id)->get();
                                                         
                                         
-                                        $pdf = PDF::loadView('pdf_equipos.pdf4', compact('equipos','area','unidad'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                                        $pdf = PDF::loadView('pdf_equipos.pdf4', compact('equipos','area','unidad','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                                         return $pdf->stream();
                                     }
                                     else
@@ -327,7 +326,7 @@ class EquipounidadController extends AppBaseController
                                             {
                                                 $equipos = E_informatico::where('usuario_id', $request->usuario_id)->get();
                                                         
-                                                $pdf = PDF::loadView('pdf_equipos.pdf5', compact('equipos','usuario','unidad'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                                                $pdf = PDF::loadView('pdf_equipos.pdf5', compact('equipos','usuario','unidad','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                                                 return $pdf->stream();
                                             }
                                             else
@@ -336,7 +335,7 @@ class EquipounidadController extends AppBaseController
                                                     {
                                                         $equipos = E_informatico::where('unidad_id', $request->unidad_id)->get();
                                                         
-                                                        $pdf = PDF::loadView('pdf_equipos.pdf6', compact('equipos','unidad'))->setPaper(array(0, 0, 612, 792), 'portrait');
+                                                        $pdf = PDF::loadView('pdf_equipos.pdf6', compact('equipos','unidad','soloinfo'))->setPaper(array(0, 0, 612, 792), 'portrait');
                                                         return $pdf->stream();
                                                     }
                                             }

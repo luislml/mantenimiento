@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
 use App\Http\Requests\CreateCiteRequest;
 use App\Http\Requests\UpdateCiteRequest;
@@ -45,6 +45,14 @@ class CiteController extends AppBaseController
         return view('cites.index')
             ->with('cites', $cites)
             ->with('gestion', $gestion);
+    }
+    public function indexc(Request $request)
+    {
+        $cites = Cite::all();        
+        //dd($cite->mantenimiento->equipos->usuario['nombre'],['apellido']);
+
+        return view('cites.indexc')
+            ->with('cites', $cites);
     }
 
     /**

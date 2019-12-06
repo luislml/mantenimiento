@@ -42,7 +42,7 @@ class Unidad extends Model
      * @var array
      */
     public static $rules = [
-        'nombre' => 'required|string|regex:/^[A-Z, ,.]+$/|unique:unidads' 
+        'nombre' => 'required|string|unique:unidads' 
     ];
 
     public function areas()

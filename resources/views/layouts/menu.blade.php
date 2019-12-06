@@ -88,10 +88,26 @@
 @endif
 
 
-@if(auth()->user()->hasRoles(['Admin','operador']))
+<!--@if(auth()->user()->hasRoles(['Admin','operador']))
 <li class="{{ Request::is('cites*') ? 'active' : '' }}">
     <a href="{!! route('cites.index') !!}"><i class="fa fa-file-text"></i><span>Cites</span></a>
 </li>
+@endif-->
+@if(auth()->user()->hasRoles(['Admin','operador']))
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-list-alt"></i> <span>Cites</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{!! route('cites.index') !!}"><i class="fa fa-file-text"></i><span>Cites Actuales</span></a>
+            </li>
+            <li>
+                <a href="{!! route('cites.indexc') !!}"><i class="fa fa-chain-broken"></i><span>Todos los Cites</span></a>
+            </li>
+        </ul>
+    </li>
 @endif
 
 <!--@if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
@@ -105,23 +121,6 @@
     <a href="{!! route('cronogramas.index') !!}"><i class="fa fa-table"></i><span>Cronogramas</span></a>
 </li>
 @endif
-
-
-
-<!--corregir este-->
-<script language="JavaScript"> 
-
-    function pregunta(){ 
-        $('#ver').removeClass("active");
-        $('#ver').addClass("active"); 
-          } 
-
-</script>
-
-
-
-
-
 
 <!--<li class="{{ Request::is('equipos*') ? 'active' : '' }}">
     <a href="{!! route('equipos.index') !!}"><i class="fa fa-edit"></i><span>Equipos</span></a>

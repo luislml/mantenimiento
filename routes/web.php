@@ -132,6 +132,7 @@ route::Get('mantenimientos/{id}/cite', ['as'=>'mantenimientos.solocite', 'uses'=
 Route::resource('cites', 'CiteController');
 route::post('cites', ['as'=>'gestion.update', 'uses'=>'CiteController@gestion']);
 route::get('cerrar', ['as'=>'gestion.cerrar', 'uses'=>'CiteController@cerrargestion']);
+route::get('citesx', ['as'=>'cites.indexc', 'uses'=>'CiteController@indexc']);
 
 
 

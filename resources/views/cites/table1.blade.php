@@ -12,9 +12,6 @@
         </thead>
         <tbody>
         @foreach($cites as $cite)
-        @if($cite->gestion_id == $gestion->gestion)
-       
-        
             <tr>
                 <td>{!! $cite->gestion_id !!}</td>
             <td>{!! $cite->mantenimiento['equipos']['nombre'] !!}</td>
@@ -24,14 +21,13 @@
                 <td>
                     {!! Form::open(['route' => ['cites.destroy', $cite->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('cites.edit', [$cite->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i>EDITAR</a>
                         
                         <a target="_blank" href="{!! route('cites.show', [$cite->id]) !!}" class='btn btn-default btn-xs' ><i class="glyphicon glyphicon-eye-open"></i>IMPRIMIR</a>
+                        <!--{!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}-->
                     </div>
                     {!! Form::close() !!}
                 </td>
             </tr>
-            @endif
         @endforeach
         </tbody>
         <tfoot>

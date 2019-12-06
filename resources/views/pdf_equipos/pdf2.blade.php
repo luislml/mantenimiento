@@ -52,25 +52,83 @@
     <table width="100%">
            <thead> 
             <tr>      
-                <th>Equipo</th> 
-                <th>QR</th>
+                <th>EQUIPO</th> 
+                @if($soloinfo==null)
+                  <th>QR</th>
+                @endif
             </tr>
         </thead>
         <tbody>
         @foreach($equipos as $equipo)
             <tr>
-                <td>EQUIPO :{!! $equipo->nombre !!} <br>
-                    NUMERO DE ACTIVO: {!! $equipo->numero_activo !!} <br>
-                    MARCA: {!! $equipo->marca !!}<br>
-                    MODELO: {!! $equipo->modelo!!}
-                </td>
+                <td>
+              @if($equipo->nombre == "CPU" | $equipo->nombre == "LAPTOP")
+                
+                        EQUIPO: {!! $equipo->nombre !!}<br>
+                        MARCA: {!! $equipo->marca !!}<br>
+                        MODELO: {!! $equipo->modelo !!}<br>
+                        CODIGO FIJO: {!! $equipo->numero_activo !!}<br>
+                        MEMORIA RAM: {!! $equipo->memoria_ram !!}<br>
+                        DISCO DURO: {!! $equipo->disco_duro !!}<br>
+                        TARJETA DE VIDEO: {!! $equipo->tarjeta_video !!}<br>
+                        SISTEMA OPERATIVO: {!! $equipo->s_o !!}<br>
+                        PROCESADOR: {!! $equipo->procesador !!}<br>   
+                        MAC ETHERNET: {!! $equipo->mac_ethernet !!}<br>
+                        MAC INALAMBRICO: {!! $equipo->mac_inalambrico !!}<br>
+                        DETALLE: {!! $equipo->detalle !!}<br>
+                
+              @endif
+              @if($equipo->nombre=="MOUSE")
+                
+                        EQUIPO: {!! $equipo->nombre !!}<br>
+                        MARCA: {!! $equipo->marca !!}<br>
+                        MODELO: {!! $equipo->modelo !!}<br>
+                        NUMERO DE SERIE: {!! $equipo->numero_serie !!}<br>
+                        DETALLE: {!! $equipo->detalle !!}<br>
+                
+              @endif
+              @if($equipo->nombre=="TELEFONO")
+                
+                        EQUIPO: {!! $equipo->nombre !!}<br>
+                        MARCA: {!! $equipo->marca !!}<br>
+                        MODELO: {!! $equipo->modelo !!}<br>
+                        NUMERO DE SERIE: {!! $equipo->numero_serie !!}<br>
+                        CODIGO FIJO: {!! $equipo->numero_activo !!}<br>  
+                        MAC ETHERNET: {!! $equipo->mac_ethernet !!}<br>
+                        DETALLE: {!! $equipo->detalle !!}<br>
+                
+              @endif
+              @if($equipo->nombre == "IMPRESORA" | $equipo->nombre == "SCANNER")
+                
+                        EQUIPO: {!! $equipo->nombre !!}<br>
+                        MARCA: {!! $equipo->marca !!}<br>
+                        MODELO: {!! $equipo->modelo !!}<br>
+                        NUMERO DE SERIE: {!! $equipo->numero_serie !!}<br>
+                        CODIGO FIJO: {!! $equipo->numero_activo !!}<br>    
+                        TIPO DE IMPRESORA: {!! $equipo->tipo_impresora !!}<br>
+                        DETALLE: {!! $equipo->detalle !!}<br>
+                
+              @endif
+              @if($equipo->nombre != "CPU" && $equipo->nombre != "LAPTOP" && $equipo->nombre != "MOUSE" && $equipo->nombre != "TELEFONO" && $equipo->nombre != "IMPRESORA" && $equipo->nombre != "SCANNER")
+                
+                        EQUIPO: {!! $equipo->nombre !!}<br>
+                        MARCA: {!! $equipo->marca !!}<br>
+                        MODELO: {!! $equipo->modelo !!}<br>
+                        NUMERO DE SERIE: {!! $equipo->numero_serie !!}<br>
+                        CODIGO FIJO: {!! $equipo->numero_activo !!}<br>    
+                        DETALLE: {!! $equipo->detalle !!}<br>
+                
+              @endif
+              </td>
               <input type="hidden" {{ $nombre = $equipo->usuario->nombre }}>
               <input type="hidden" {{ $apellido = $equipo->usuario->apellido }}>
               <input type="hidden" {{ $unidad = $equipo->unidad['nombre'] }}>
-                <td>
+                @if($soloinfo==null)
+                <td> 
                   <img src="data:image/png;base64, {!!base64_encode(QrCode::format('png')->size(200)->margin(1)->generate("NOMBRE:$nombre $apellido | EQUIPO:$equipo->nombre | ACTIVO:$equipo->numero_activo | MARCA:$equipo->marca | MODELO:$equipo->modelo | UNIDAD:$unidad"))!!}">
                   
                 </td>
+              @endif
             </tr>
         @endforeach
         </tbody>

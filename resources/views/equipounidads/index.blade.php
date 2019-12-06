@@ -56,7 +56,8 @@
                     @include('equipounidads.table')
             </div>
         </div>
-
+        <label for="" class="control-label">INFORMACION</label>
+          <input type="checkbox" name="soloinfo" value="si">
           {!! Form::submit('IMPRIMIR', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
     </div>
