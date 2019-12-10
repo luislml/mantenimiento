@@ -58,8 +58,7 @@ class personaf extends Model
     public static $rules = [
         'nombre' => 'string|regex:/^[A-Z, ]+$/',
         'apellido' => 'string|regex:/^[A-Z, ]/',
-        'ci' => 'string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/',
-        'unidad_id' => 'required'
+        'ci' => 'string|unique:users|min:6|max:10|regex:/^([0-9]{6,8})+[A-Z]{0,2}/'
     ];
 
     

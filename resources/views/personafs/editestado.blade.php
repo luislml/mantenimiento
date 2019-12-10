@@ -5,10 +5,10 @@
 
     <section class="content-header">
         <h1>
-            Usuario: {{ $personaf->nombre }}   
+            FUNCIONARIO: {{ $personaf->nombre }}   
         </h1>
         <h1>
-            Estado actual: {{ $personaf->estado }}
+            ESTADO ACTUAL: {{ $personaf->estado }}
         </h1>
         
    </section>

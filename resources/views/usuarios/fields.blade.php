@@ -27,7 +27,7 @@
     {!! Form::label('rol', 'ROL:') !!}
     {!! Form::select('rol', [''=>'','operador' => 'operador', 'Admin' => 'Admin', 'estudiante' => 'estudiante'], null, ['class' => 'form-control']) !!}
 </div>
-<input class="form-control" name="estado" type="hidden" value="activo">
+<input class="form-control" name="estado" type="hidden" value="ACTIVO">
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

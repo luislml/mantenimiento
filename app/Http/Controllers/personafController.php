@@ -204,7 +204,7 @@ class personafController extends AppBaseController
 
         $personaf = $this->personafRepository->update($request->all(), $id);
 
-        Flash::success('USUARIO CORRECTAMENTE CAMBIADO DE UNIDAD.');
+        Flash::success('DATOS ACTUALIZADOS CORRECTAMENTE.');
 
         return redirect(route('personafs.index'));
     }

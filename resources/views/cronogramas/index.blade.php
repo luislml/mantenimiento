@@ -122,7 +122,7 @@
             {!! Form::open(['route' => 'cronograma.print','target' => '_blank']) !!}                      
               <!-- Date range -->
                   <div class="form-group">
-                    <label>Date range:</label>
+                    <label>SELECCIONE EL RANGO DE FECHAS A IMPRIMIR:</label>
                     <div class="input-group">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>

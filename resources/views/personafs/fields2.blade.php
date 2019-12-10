@@ -1,12 +1,12 @@
 
                             <div class="col-md-3">
-   <label for="" class="control-label">Seleccione Estado</label>
+   <label for="" class="control-label">SELECCIONE ESTADO</label>
       <select name="estado" id="" class="form-control">
-         <option >Seleccione</option>
+         <option >SELECCIONE</option>
          
-            <option value="activo">activo</option>
-            <option value="De vaja">De vaja</option>
-            <option value="Vacaciones">vacaciones</option>
+            <option value="ACTIVO">ACTIVO</option>
+            <option value="DE BAJA">DE BAJA</option>
+            
          
       </select>
 </div>
