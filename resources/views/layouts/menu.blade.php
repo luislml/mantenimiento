@@ -166,3 +166,10 @@
         </ul>
     </li>
 @endif
+
+@if(auth()->user()->hasRoles(['Admin','operador','estudiante']))
+<li class="{{ Request::is('tutorials*') ? 'active' : '' }}">
+    <a href="{!! route('tutorials.index') !!}"><i class="fa fa-edit"></i><span>Tutoriales</span></a>
+</li>
+@endif
+

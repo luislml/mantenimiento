@@ -2,7 +2,7 @@
     <table id="unidads-table" class="table table-striped table-bordered" style="width:100%" >
         <thead>
             <tr>
-                <th>uNIDAD</th>
+                <th>UNIDAD</th>
                 <th>ACCION</th>
             </tr>
         </thead>

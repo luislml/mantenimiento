@@ -61,7 +61,7 @@ class EquipoController extends AppBaseController
 
         $equipo = $this->equipoRepository->create($input);
 
-        Flash::success('Equipo saved successfully.');
+        Flash::success('EQUIPO GUARDADO CORRECTAMENTE.');
 
         return redirect(route('equipos.index'));
     }
@@ -152,7 +152,7 @@ class EquipoController extends AppBaseController
 
         $this->equipoRepository->delete($id);
 
-        Flash::success('Equipo deleted successfully.');
+        Flash::success('EQUIPO BORRADO CORRECTAMENTE.');
 
         return redirect(route('eInformaticos.create'));
     }

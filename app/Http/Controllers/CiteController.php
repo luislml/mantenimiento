@@ -48,7 +48,8 @@ class CiteController extends AppBaseController
     }
     public function indexc(Request $request)
     {
-        $cites = Cite::all();        
+        $cites = Cite::where("gestion_id","!=",1)->get();   
+        
         //dd($cite->mantenimiento->equipos->usuario['nombre'],['apellido']);
 
         return view('cites.indexc')
